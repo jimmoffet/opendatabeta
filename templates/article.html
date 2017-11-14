@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style> 
+
+/* set the CSS */
+body { 
+    background-color: #FFF;
+    margin: 0px;
+}
+
+
+
+#dashboard {
+}
+
+.dboard path{
+    stroke: #000;
+    stroke-width: 0;
+}
+
+path { 
+    stroke: black;
+    stroke-width: 1;
+    fill: none;
+}
+.axis2 path,
+.axis2 line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+.legend2 {
+    font-size: 16px;
+    font-weight: bold;
+    text-anchor: middle;
+}
+
+.election {
+    font-size: 16px;
+    text-anchor: end;
+}
+
+path:hover {  opacity:0.9; }
+rect:hover {  fill:#7c715e; }
+.axis {  font: 15px sans-serif;}
+.legend tr{    border-bottom:0px solid #ddd; }
+.legend tr:first-child{    border-top:0px solid #ddd; }
+
+#dashboard .axis {  font: 12px sans-serif;}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {  display: none; }
+.legend{
+    margin-bottom:76px;
+    display:inline-block;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+.legend td{
+    padding:4px 5px;
+    vertical-align:bottom;
+}
+.legendFreq, .legendPerc{
+    align:right;
+    width:50px;
+}
+
+text {
+    fill:#555;
+}
+
+.title{
+    font-family: Helvetica, Georgia;
+    font-size: 150px;
+    font-weight: 800;
+    line-height: .843;
+    color: #EEE;
+    padding-left:0px;
+    margin:0px;
+}
+.pre-title{
+    font-family: Helvetica, Georgia;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: .01;
+    color: #EEE;
+    padding-left:10px;
+
+}
+.tooltip {   
+    position: absolute;         
+    text-align: center;         
+    width: auto;                    
+    height: auto;                   
+    padding: 5px;               
+    font: 12px sans-serif;      
+    background: lightsteelblue; 
+    border: 0px;        
+    border-radius: 8px;         
+    pointer-events: none;           
+}
+
+
+
+</style>
+<body>
+
+    <div style="display: flex;justify-content: center;align-items: center;"> 
+        <div id="container"  style="width:600px; min-width:45vw; max-width: 800px">  
+            <center><div><h3>Special Interest Contributions to Cambridge Council '14-'15</h3></div></center> 
+            <div id='dashboard' class='dboard'></div>   
+        </div>
+    </div>
+
+<!-- load the d3.js version 3 library -->    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+
+<script>
+    d33 = d3
+    window.d3 = null
+
+</script>
+
+<script>
+var hGsvg;
+
+function dashboard(id, fData){
+    var barColor = '#c1baa9';
+    function segColor(c){ return {Developer:"#E5720C", Commerce:"#1F77B4", Labor:"#278F27", Individual:"#9CB2D0"}[c]; }
+
+    // compute total for each state.
+    // fData.forEach(function(d){d.total=((d.freq.Developer+d.freq.Commerce+d.freq.Labor+d.freq.Individual)-d.freq.Individual)/(d.freq.Developer+d.freq.Commerce+d.freq.Labor+d.freq.Individual);});
+    
+    fData.forEach(function(d){d.total=d.freq.Developer+d.freq.Commerce+d.freq.Labor;});
+
+    var chartDiv = document.getElementById("dashboard");
+    
+
+    // function to handle histogram.
+    function histoGram(fD){
+        var width = chartDiv.clientWidth;
+        var height = chartDiv.clientHeight;
+
+        var hG={},    hGDim = {t: 60, r: 0, b: 30, l: 0};
+        hGDim.w = width - hGDim.l - hGDim.r, 
+        hGDim.h = 300 - hGDim.t - hGDim.b;
+
+        console.log('width is ',width);
+            
+        //create svg for histogram.
+        hGsvg = d33.select(id).append("svg")
+            .attr("width", width)
+            .attr("height", hGDim.h + hGDim.t + hGDim.b).append("g")
+            .attr('id','histo')
+            .attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")");
+
+        // hGsvg.append("text")
+        //   .attr("x", 2)
+        //   .attr("y", -50)
+        //   .attr("dy", "0.32em")
+        //   .attr("fill", "#aaa")
+        //   .attr("font-weight", "bold")
+        //   .attr("text-anchor", "start")
+        //   .text("Special Interest Contributions to Cambridge Council '14-'15");
+
+        // create function for x-axis mapping.
+        var x = d33.scale.ordinal().rangeRoundBands([0, hGDim.w], 0.1)
+                .domain(fD.map(function(d) { return d[0]; }));
+
+        // Add x-axis to the histogram svg.
+        hGsvg.append("g").attr("class", "x axis")
+            .attr("transform", "translate(0," + hGDim.h + ")")
+            .call(d33.svg.axis().scale(x).orient("bottom"));
+
+        // Create function for y-axis map.
+        var y = d33.scale.linear().range([hGDim.h, 0])
+                .domain([0, d33.max(fD, function(d) { return d[1]; })]);
+
+        // Create bars for histogram to contain rectangles and freq labels.
+        var bars = hGsvg.selectAll(".bar").data(fD).enter()
+                .append("g").attr("class", "bar");
+        
+        //create the rectangles.
+        bars.append("rect")
+            .attr("x", function(d) { return x(d[0]); })
+            .attr("y", function(d) { return y(d[1]); })
+            .attr("width", x.rangeBand())
+            .attr("height", function(d) { return hGDim.h - y(d[1]); })
+            .attr('fill',barColor)
+            .on("mouseover",mouseover)// mouseover is defined beDeveloper.
+            .on("mouseout",mouseout);// mouseout is defined beDeveloper.
+            
+        //Create the frequency labels above the rectangles.
+        bars.append("text").text(function(d){ return d33.format(",")(d[1])})
+            .attr("x", function(d) { return x(d[0])+x.rangeBand()/2; })
+            .attr("y", function(d) { return y(d[1])-5; })
+            .attr("text-anchor", "middle");
+        
+        function mouseover(d){  // utility function to be called on mouseover.
+            // filter for selected state.
+            var st = fData.filter(function(s){ return s.State == d[0];})[0],
+                nD = d33.keys(st.freq).map(function(s){ return {type:s, freq:st.freq[s]};});
+               
+            // call update functions of pie-chart and legend.    
+            pC.update(nD);
+            leg.update(nD);
+        }
+        
+        function mouseout(d){    // utility function to be called on mouseout.
+            // reset the pie-chart and legend.    
+            pC.update(tF);
+            leg.update(tF);
+        }
+        
+        // create function to update the bars. This will be used by pie-chart.
+        hG.update = function(nD, color){
+            // update the domain of the y-axis map to reflect change in frequencies.
+            y.domain([0, d33.max(nD, function(d) { return d[1]; })]);
+            
+            // Attach the new data to the bars.
+            var bars = hGsvg.selectAll(".bar").data(nD);
+            
+            // transition the height and color of rectangles.
+            bars.select("rect").transition().duration(500)
+                .attr("y", function(d) {return y(d[1]); })
+                .attr("height", function(d) { return hGDim.h - y(d[1]); })
+                .attr("fill", color);
+
+            // transition the frequency labels location and change value.
+            bars.select("text").transition().duration(500)
+                .text(function(d){ return d33.format(",")(d[1])})
+                .attr("y", function(d) {return y(d[1])-5; });            
+        }  
+        hG.update2 = function(nD, color){
+            // update the domain of the y-axis map to reflect change in frequencies.
+            y.domain([0, d33.max(nD, function(d) { return d[1]; })]);
+            
+            // Attach the new data to the bars.
+            var bars = hGsvg.selectAll(".bar").data(nD);
+            
+            // transition the height and color of rectangles.
+            bars.select("rect").transition().duration(500)
+                .attr("y", function(d) {return y(d[1]); })
+                .attr("height", function(d) { return hGDim.h - y(d[1]); })
+                .attr("fill", color);
+
+            // transition the frequency labels location and change value.
+            bars.select("text").transition().duration(500)
+                .text(function(d){ return d33.format(".0%")(d[1])})
+                .attr("y", function(d) {return y(d[1])-5; });            
+        }     
+
+        return hG;
+
+    }
+
+
+    
+    // function to handle pieChart.
+    function pieChart(pD){
+        var pC ={},    pieDim ={w:250, h: 250};
+        pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
+                
+        // create svg for pie chart.
+        var piesvg = d33.select(id).append("svg")
+            .attr("width", pieDim.w)
+            .attr("height", pieDim.h)
+            .attr('id','pie')
+            .append("g")
+            .attr("transform", "translate("+pieDim.w/2+","+pieDim.h/2+")");
+        
+        
+        // create function to draw the arcs of the pie slices.
+        var arc = d33.svg.arc().outerRadius(pieDim.r - 10).innerRadius(0);
+
+        // create a function to compute the pie slice angles.
+        var pie = d33.layout.pie().sort(null).value(function(d) { return d.freq; });
+
+        // Draw the pie slices.
+        piesvg.selectAll("path").data(pie(pD)).enter().append("path").attr("d", arc)
+            .each(function(d) { this._current = d; })
+            .style("fill", function(d) { return segColor(d.data.type); })
+            .on("mouseover",mouseover).on("mouseout",mouseout);
+
+        // create function to update pie-chart. This will be used by histogram.
+        pC.update = function(nD){
+            piesvg.selectAll("path").data(pie(nD)).transition().duration(500)
+                .attrTween("d", arcTween);
+        }        
+        // Utility function to be called on mouseover a pie slice.
+        function mouseover(d){
+            // call the update function of histogram with new data.
+            hG.update(fData.map(function(v){ 
+                return [v.State,v.freq[d.data.type]];}),segColor(d.data.type));
+        }
+        //Utility function to be called on mouseout a pie slice.
+        function mouseout(d){
+            // call the update function of histogram with all data.
+            hG.update(fData.map(function(v){
+                return [v.State,v.total];}), barColor);
+        }
+        // Animating the pie-slice requiring a custom function which specifies
+        // how the intermediate paths should be drawn.
+        function arcTween(a) {
+            var i = d33.interpolate(this._current, a);
+            this._current = i(0);
+            return function(t) { return arc(i(t));    };
+        }    
+        return pC;
+    }
+    
+    // function to handle legend.
+    function legend(lD){
+        var leg = {};
+            
+        // create table for legend.
+        var legend = d33.select(id).append("table").attr('class','legend').attr('id','legend');
+        
+        // create one row per segment.
+        var tr = legend.append("tbody").selectAll("tr").data(lD).enter().append("tr");
+            
+        // create the first column for each segment.
+        tr.append("td").append("svg").attr("width", '16').attr("height", '16').append("rect")
+            .attr("width", '16').attr("height", '16')
+            .attr("fill",function(d){ return segColor(d.type); });
+            
+        // create the second column for each segment.
+        tr.append("td").text(function(d){ return d.type;});
+
+        // create the third column for each segment.
+        tr.append("td").attr("class",'legendFreq')
+            .text(function(d){ return d33.format(",")(d.freq);});
+
+        // create the fourth column for each segment.
+        tr.append("td").attr("class",'legendPerc')
+            .text(function(d){ return getLegend(d,lD);});
+
+        // Utility function to be used to update the legend.
+        leg.update = function(nD){
+            // update the data attached to the row elements.
+            var l = legend.select("tbody").selectAll("tr").data(nD);
+
+            // update the frequencies. NOT %%
+            l.select(".legendFreq").text(function(d){ return d33.format(",")(d.freq);});
+
+            // update the percentage column.
+            l.select(".legendPerc").text(function(d){ return getLegend(d,nD);});        
+        }
+        
+        function getLegend(d,aD){ // Utility function to compute percentage.
+            return d33.format("%")(d.freq/d33.sum(aD.map(function(v){ return v.freq; })));
+        }
+
+        return leg;
+    }
+    
+    // calculate total frequency by segment for all state.
+    var tF = ['Developer','Commerce','Labor','Individual'].map(function(d){ 
+        return {type:d, freq: d33.sum(fData.map(function(t){ return t.freq[d];}))}; 
+    });    
+    
+    // calculate total frequency by state for all segment.
+    var sF = fData.map(function(d){return [d.State,d.total];});
+
+    var hG = histoGram(sF), // create the histogram.
+        pC = pieChart(tF), // create the pie-chart.
+        leg= legend(tF);  // create the legend.
+
+
+}
+
+
+</script>
+
+<script>
+// Developer = developer/real estate/construction
+// Commerce = Commerce
+// Individual = individual
+var freqData=[
+    {State:'Devereux',freq:{Developer:725, Commerce:0, Labor:0, Individual:48195}},
+    {State:'Mazen',freq:{Developer:550, Commerce:0, Labor:1450, Individual:39591}},
+    {State:'Kelley',freq:{Developer:2025, Commerce:200, Labor:0, Individual:14725}},
+    {State:'Carlone',freq:{Developer:3250, Commerce:0, Labor:500, Individual:26095}},
+    {State:'Simmons',freq:{Developer:15850, Commerce:1050, Labor:6350, Individual:26343}},
+    {State:'Toomey',freq:{Developer:16775, Commerce:3300, Labor:5450, Individual:35950}},
+    {State:'Maher',freq:{Developer:19400, Commerce:1575, Labor:5250, Individual:26164}},
+    {State:'McGovern',freq:{Developer:30500, Commerce:5700, Labor:5850, Individual:22965}},
+    {State:'Cheung',freq:{Developer:36720, Commerce:4951, Labor:6500, Individual:157527}}
+];
+
+dashboard('#dashboard',freqData);
+
+
+</script>
+
+
+<!-- <script>
+function dashboard(id){
+// Define the div for the tooltip
+var ttip = d33.select("body").append("div")   
+    .attr("class", "tooltip")               
+    .style("opacity", 0);
+// Set the dimensions of the canvas / graph
+var margin = {top: 30, right: 40, bottom: 70, left: 70},
+    width = 800 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+// Parse the date / time
+var parseDate = d33.time.format("%b %Y").parse;
+
+// Set the ranges
+var x = d33.time.scale().range([0, width]);
+var y = d33.scale.linear().range([height, 0]);
+
+// Define the axes
+var xAxis = d33.svg.axis().scale(x)
+    .orient("bottom").ticks(5);
+var yAxis = d33.svg.axis().scale(y)
+    .orient("left").ticks(5);
+
+// Define the line
+var priceline = d33.svg.line()   
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.price); });
+    
+// Adds the svg canvas
+var svg = d33.select(id)
+    .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+        .attr("transform", 
+              "translate(" + margin.left + "," + margin.top + ")");
+
+
+
+// Get the data
+d33.csv("https://s3.us-east-2.amazonaws.com/opendatabeta/lines1315.csv", function(error, data) {
+
+
+    data.forEach(function(d) {
+        d.date = parseDate(d.date);
+        d.price = +d.price;
+    });
+    // Scale the range of the data
+    x.domain(d33.extent(data, function(d) { return d.date; }));
+    y.domain([0, d33.max(data, function(d) { return d.price; })]);
+    // Nest the entries by symbol
+    var dataNest = d33.nest()
+        .key(function(d) {return d.symbol;})
+        .entries(data);
+    var color = d33.scale.category20();   // set the colour scale
+    legendSpace = width/dataNest.length; // spacing for the legend
+    // Loop through each symbol / key
+    dataNest.forEach(function(d,i) { 
+        svg.append("path")
+            .attr("class", "line")
+            .style("stroke", function() { // Add the colours dynamically
+                return d.color = color(d.key); })
+            .attr("id", 'tag'+d.key.replace(/\s+/g, '')) // assign ID
+            .attr("d", priceline(d.values));
+        // Add the Legend
+        svg.append("text")
+            .attr("x", (legendSpace/2)+i*legendSpace)  // space legend
+            .attr("y", height + (margin.bottom/2)+ 5)
+            .attr("class", "legend2")    // style the legend
+            .style("fill", function() { // Add the colours dynamically
+                return d.color = color(d.key); })
+            .on("click", function(){
+                // Determine if current line is visible 
+                var active   = d.active ? false : true,
+                newOpacity = active ? 0 : 1; 
+                // Hide or show the elements based on the ID
+                d33.select("#tag"+d.key.replace(/\s+/g, ''))
+                    .transition().duration(100) 
+                    .style("opacity", newOpacity); 
+                // Update whether or not the elements are active
+                d.active = active;
+                })  
+            .text(d.key); 
+    });
+    // Add the X Axis
+    svg.append("g")
+        .attr("class", "x axis2")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+    // Add the Y Axis
+    svg.append("g")
+        .attr("class", "y axis2")
+        .call(yAxis);
+
+
+    concession1 = parseDate('Apr 2014');
+    concession2 = parseDate('Jul 2014');
+
+    election13 = parseDate('Nov 2013');
+    election15 = parseDate('Sep 2015');
+
+    var hover1 = svg.append("svg:line")
+        .attr("class", 'line')
+        .attr("x1", x(concession1) )
+        .attr("y1", height)
+        .attr("x2", x(concession1) )
+        .attr("y2", 0)
+        .style("stroke-opacity", 0)
+        .style("stroke-width", 15)
+        .style("stroke", "blue")
+        .on("mouseover", function(d) {      
+            ttip.transition()        
+                .duration(200)      
+                .style("opacity", 0.9);      
+            ttip.html("Essex St." + "<br/>"  + "Permit Approval")  
+                .style("left", (d33.event.pageX) + "px")     
+                .style("top", (d33.event.pageY - 40) + "px");    
+            })                  
+        .on("mouseout", function(d) {       
+            ttip.transition()        
+                .duration(500)      
+                .style("opacity", 0);   
+        });
+
+    var concession1 = svg.append("svg:line")
+        .attr("class", 'line')
+        .attr("x1", x(concession1) )
+        .attr("y1", height)
+        .attr("x2", x(concession1) )
+        .attr("y2", 0)
+        .style("stroke-dasharray", ("3, 3"))
+        .style("stroke-opacity", 0.9)
+        .style("stroke", "black");
+
+    var election1 = svg.append("svg:line")
+        .attr("class", 'line')
+        .attr("x1", x(election13) )
+        .attr("y1", height)
+        .attr("x2", x(election13) )
+        .attr("y2", -50)
+        .style("stroke-dasharray", ("3, 3"))
+        .style("stroke-opacity", 0.4)
+        .style("stroke", "black");
+
+    var xpos = x(election13) - 5;
+
+    svg.append("text")
+        .attr("x", x(election13) - 5 ) // space legend
+        .attr("y", -15)
+        .attr("transform", "rotate(-30,"+ xpos +",-15)")
+        .attr("class", "election")    // style the legend
+        .style("fill", "#333")
+        .style("fill-opacity","0.5")
+        .text("2013 Election"); 
+
+    var xpos2 = x(election15) - 5;
+
+    svg.append("text")
+        .attr("x", x(election15) - 5 ) // space legend
+        .attr("y", -15)
+        .attr("transform", "rotate(-30,"+ xpos2 +",-15)")
+        .attr("class", "election")    // style the legend
+        .style("fill", "#333")
+        .style("fill-opacity","0.5")
+        .text("2015 Election"); 
+
+    var election2 = svg.append("svg:line")
+        .attr("class", 'line')
+        .attr("x1", x(election15) )
+        .attr("y1", height)
+        .attr("x2", x(election15) )
+        .attr("y2", -50)
+        .style("stroke-dasharray", ("3, 3"))
+        .style("stroke-opacity", 0.4)
+        .style("stroke", "black");
+
+
+    });
+}
+dashboard("#lines");
+</script> -->
+
+<!-- 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.0/d3.min.js"></script>
+<script>
+  d34 = d3
+  window.d3 = null
+  // test it worked
+  console.log('v3', d33.version)
+  console.log('v4', d34.version)
+</script>
+
+
+
+<script>
+
+var svg = d34.select("#stacks").append("svg")
+        .attr("width", 1650)
+        .attr("height", 700),
+    margin = {top: 20, right: 120, bottom: 130, left: 40},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height") - margin.top - margin.bottom,
+    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// // Set the dimensions of the canvas / graph
+// var margin = {top: 20, right: 120, bottom: 130, left: 40},
+//     width = 1950 - margin.left - margin.right,
+//     height = 1000 - margin.top - margin.bottom;
+
+// // Adds the svg canvas
+// var svg = d34.select("#stacks")
+//     .append("svg")
+//         .attr("width", width - margin.left - margin.right)
+//         .attr("height", height - margin.top - margin.bottom);
+
+// var g = d34.select("#stacks")
+//  .append("g")
+//      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var x = d34.scaleBand()
+    .rangeRound([0, width])
+    .paddingInner(0.1)
+    .align(0.1);
+
+var y = d34.scaleLinear()
+    .rangeRound([height, 0]);
+
+// Define the div for the stackstooltip
+var ttip = d34.select("body").append("div")   
+    .attr("class", "stackstooltip")            
+    .style("opacity", 0);
+
+var ttip2 = d34.select("body").append("div")   
+    .attr("class", "stackstooltip2")    
+    .style("opacity", 0);
+
+// var color = d34.scale.category20();   // set the colour scale
+
+// var z = d34.scaleOrdinal()
+//     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+var z = d34.scaleOrdinal(d34.schemeCategory10)
+
+d34.csv("https://s3.us-east-2.amazonaws.com/opendatabeta/data.csv", function(d, i, columns) {
+  for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+  d.total = t;
+  return d;
+}, function(error, data) {
+  if (error) throw error;
+
+  var keys = data.columns.slice(1);
+
+    //data.sort(function(a, b) { return b.total - a.total; });
+  x.domain(data.map(function(d) { return d.State; }));
+  y.domain([0, d34.max(data, function(d) { return d.total; })]).nice();
+  z.domain(keys);
+
+    // x.domain(d34.extent(data, function(d) { return d.State; }));
+    // y.domain([0, d34.max(data, function(d) { return d.total; })]).nice();
+
+  
+
+  var stacks = g.append("g")
+    .selectAll("g")
+    .data(d34.stack().keys(keys)(data))
+    .enter().append("g")
+      .attr("fill", function(d) { return z(d.key); })
+      .on("mouseover", function(d, i) {   
+            ttip.transition()        
+                .duration(200)      
+                .style("opacity", 0.9);      
+            ttip.html(d.key + "</br>" + '<div id="tip"></div>')  
+                .style("left", (d34.event.pageX) + "px")     
+                .style("top", (d34.event.pageY - 40) + "px");    
+            })                  
+        .on("mouseout", function(d) {       
+            ttip.transition()        
+                .duration(500)      
+                .style("opacity", 0);   
+        })
+    .selectAll("rect")
+    .data(function(d) { return d; })
+    .enter().append("rect")
+      .attr("x", function(d) { return x(d.data.State); })
+      .attr("y", function(d) { return y(d[1]); })
+      .attr("height", function(d) { return y(d[0]) - y(d[1]); })
+      .attr("width", x.bandwidth())
+      .on("mouseover", function(d,i) { 
+  
+          ttip2.transition()        
+            .duration(200)      
+            .style("opacity", 0.9);  
+
+          ttip2.html(d[1]-d[0])  
+            .style("left", (d34.event.pageX) + "px")     
+            .style("top", (d34.event.pageY + 0) + "px");  
+
+          d34.select(this)  
+            .style("stroke-opacity", .75)
+            .style("stroke-width", 1)
+            .style("stroke", "black");  
+
+            })              
+
+        .on("mouseout", function(d) { 
+
+          d34.select(this)  
+            .style("stroke-opacity", 0)
+            .style("stroke-width", 0);
+
+          ttip2.transition()        
+                .duration(500)      
+                .style("opacity", 0);   
+
+        });
+
+
+  g.append("g")
+      .attr("class", "axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d34.axisBottom(x))
+      .selectAll("text")
+        .attr("y", 0)
+        .attr("x", 9)
+        .attr("dy", ".35em")
+        .attr("transform", "rotate(90)")
+        .style("text-anchor", "start");
+
+  g.append("g")
+      .attr("class", "axis")
+      .call(d34.axisLeft(y).ticks(null, "s"))
+    .append("text")
+      .attr("x", 2)
+      .attr("y", y(y.ticks().pop()) + 0.5)
+      .attr("dy", "0.32em")
+      .attr("fill", "#aaa")
+      .attr("font-weight", "bold")
+      .attr("text-anchor", "start")
+      .text("Developer Contributions by Month '10-'15");
+
+  var legend = g.append("g")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .attr("text-anchor", "end")
+    .selectAll("g")
+    .data(keys.slice().reverse())
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(70," + i * 20 + ")"; });
+
+  legend.append("rect")
+      .attr("x", width - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", z);
+
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .attr("fill", "#aaa")
+      .text(function(d) { return d; });
+});
+
+</script>
+ -->
+
+</body>
