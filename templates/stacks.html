@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<style>
+
+#stacks.axis {
+  display: none;
+}
+
+#stacks.domain {
+  display: none;
+}
+
+#stacks.tick {
+	font-size: 13px;
+	font-weight: 100;
+}
+
+#stacks text { fill: #666; }
+
+.stackstooltip {   
+    position: absolute;         
+    text-align: center;         
+    width: auto;                    
+    height: auto;                   
+    padding: 5px;               
+    font: 12px sans-serif;      
+    background: lightsteelblue; 
+    border: 0px;        
+    border-radius: 8px;         
+    pointer-events: none;           
+}
+
+.stackstooltip2 {   
+    position: absolute;         
+    text-align: center;         
+    width: auto;                    
+    height: auto;                   
+    padding: 5px;               
+    font: 12px sans-serif;      
+    background: lightsteelblue; 
+    border: 0px;        
+    border-radius: 8px;         
+    pointer-events: none;           
+}
+
+</style>
+
+<div id='stacks'></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+<script>
+  d33 = d3
+  window.d3 = null
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.0/d3.min.js"></script>
+<script>
+  d34 = d3
+  window.d3 = null
+  // test it worked
+  console.log('v3', d33.version)
+  console.log('v4', d34.version)
+</script>
+<script>
+
+var svg = d34.select("#stacks").append("svg")
+		.attr("width", 1650)
+        .attr("height", 700),
+    margin = {top: 20, right: 120, bottom: 130, left: 40},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height") - margin.top - margin.bottom,
+    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// // Set the dimensions of the canvas / graph
+// var margin = {top: 20, right: 120, bottom: 130, left: 40},
+//     width = 1950 - margin.left - margin.right,
+//     height = 1000 - margin.top - margin.bottom;
+
+// // Adds the svg canvas
+// var svg = d34.select("#stacks")
+//     .append("svg")
+//         .attr("width", width - margin.left - margin.right)
+//         .attr("height", height - margin.top - margin.bottom);
+
+// var g = d34.select("#stacks")
+// 	.append("g")
+//     	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var x = d34.scaleBand()
+    .rangeRound([0, width])
+    .paddingInner(0.1)
+    .align(0.1);
+
+var y = d34.scaleLinear()
+    .rangeRound([height, 0]);
+
+// Define the div for the stackstooltip
+var ttip = d34.select("body").append("div")   
+    .attr("class", "stackstooltip")            
+    .style("opacity", 0);
+
+var ttip2 = d34.select("body").append("div")   
+    .attr("class", "stackstooltip2")    
+    .style("opacity", 0);
+
+// var color = d34.scale.category20();   // set the colour scale
+
+// var z = d34.scaleOrdinal()
+//     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+var z = d34.scaleOrdinal(d34.schemeCategory10)
+
+d34.csv("https://s3.us-east-2.amazonaws.com/opendatabeta/data.csv", function(d, i, columns) {
+  for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+  d.total = t;
+  return d;
+}, function(error, data) {
+  if (error) throw error;
+
+  var keys = data.columns.slice(1);
+
+	//data.sort(function(a, b) { return b.total - a.total; });
+  x.domain(data.map(function(d) { return d.State; }));
+  y.domain([0, d34.max(data, function(d) { return d.total; })]).nice();
+  z.domain(keys);
+
+	// x.domain(d34.extent(data, function(d) { return d.State; }));
+	// y.domain([0, d34.max(data, function(d) { return d.total; })]).nice();
+
+  
+
+  var stacks = g.append("g")
+    .selectAll("g")
+    .data(d34.stack().keys(keys)(data))
+    .enter().append("g")
+      .attr("fill", function(d) { return z(d.key); })
+      .on("mouseover", function(d, i) {   
+            ttip.transition()        
+                .duration(200)      
+                .style("opacity", 0.9);      
+            ttip.html(d.key + "</br>" + '<div id="tip"></div>')  
+                .style("left", (d34.event.pageX) + "px")     
+                .style("top", (d34.event.pageY - 40) + "px");    
+            })                  
+        .on("mouseout", function(d) {       
+            ttip.transition()        
+                .duration(500)      
+                .style("opacity", 0);   
+        })
+    .selectAll("rect")
+    .data(function(d) { return d; })
+    .enter().append("rect")
+      .attr("x", function(d) { return x(d.data.State); })
+      .attr("y", function(d) { return y(d[1]); })
+      .attr("height", function(d) { return y(d[0]) - y(d[1]); })
+      .attr("width", x.bandwidth())
+      .on("mouseover", function(d,i) { 
+  
+          ttip2.transition()        
+            .duration(200)      
+            .style("opacity", 0.9);  
+
+          ttip2.html(d[1]-d[0])  
+            .style("left", (d34.event.pageX) + "px")     
+            .style("top", (d34.event.pageY + 0) + "px");  
+
+      	  d34.select(this)  
+            .style("stroke-opacity", .75)
+	        .style("stroke-width", 1)
+	        .style("stroke", "black");  
+
+            })              
+
+        .on("mouseout", function(d) { 
+
+          d34.select(this)  
+            .style("stroke-opacity", 0)
+	        .style("stroke-width", 0);
+
+	      ttip2.transition()        
+                .duration(500)      
+                .style("opacity", 0);   
+
+        });
+
+
+  g.append("g")
+      .attr("class", "axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d34.axisBottom(x))
+      .selectAll("text")
+        .attr("y", 0)
+        .attr("x", 9)
+        .attr("dy", ".35em")
+        .attr("transform", "rotate(90)")
+        .style("text-anchor", "start");
+
+  g.append("g")
+      .attr("class", "axis")
+      .call(d34.axisLeft(y).ticks(null, "s"))
+    .append("text")
+      .attr("x", 2)
+      .attr("y", y(y.ticks().pop()) + 0.5)
+      .attr("dy", "0.32em")
+      .attr("fill", "#aaa")
+      .attr("font-weight", "bold")
+      .attr("text-anchor", "start")
+      .text("Developer Contributions by Month '10-'15");
+
+  var legend = g.append("g")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .attr("text-anchor", "end")
+    .selectAll("g")
+    .data(keys.slice().reverse())
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(70," + i * 20 + ")"; });
+
+  legend.append("rect")
+      .attr("x", width - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", z);
+
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .attr("fill", "#aaa")
+      .text(function(d) { return d; });
+});
+
+</script>

@@ -1,0 +1,53 @@
+{
+  "type": "network",
+  "version": "1.0",
+  "data": "https://s3.us-east-2.amazonaws.com/opendatabeta/d92.json",
+  "logo": {
+    "text": "Jim",
+    "file": "",
+    "link": ""
+  },
+  "text": {
+    "title": "Deals for Developers",
+    "more": "",
+    "intro": "Explore the contributions that Cambridge candidates have received from development firms and their affiliated contributors"
+  },
+  "legend": {
+    "edgeLabel": "Thicker, darker edges indicate a larger number of donations contributed by a single developer to a candidate",
+    "colorLabel": "Blue = Developer<br/>Bright Red = Official currently in office<br/>Dark Red = Official not currently in office",
+    "nodeLabel": "Larger circles indicate a larger number of developer donations received or given"
+  },
+  "features": {
+    "search": true,
+    "groupSelectorAttribute": "Incumbent",
+    "hoverBehavior": "Dim"
+  },
+  "informationPanel": {
+    "imageAttribute": false,
+    "groupByEdgeDirection": false
+  },
+  "sigma": {
+    "graphProperties": {
+      "minEdgeSize": 0.4,
+      "maxNodeSize": 14,
+      "maxEdgeSize": 15,
+      "minNodeSize": 2
+    },
+    "drawingProperties": {
+      "labelThreshold": 9,
+      "hoverFontStyle": "bold",
+      "defaultEdgeType": "curve",
+      "defaultLabelColor": "#000",
+      "defaultLabelHoverColor": "#fff",
+      "defaultLabelSize": 14,
+      "activeFontStyle": "bold",
+      "fontStyle": "bold",
+      "defaultHoverLabelBGColor": "#002147",
+      "defaultLabelBGColor": "#ddd"
+    },
+    "mouseProperties": {
+      "minRatio": 0.75,
+      "maxRatio": 20
+    }
+  }
+}

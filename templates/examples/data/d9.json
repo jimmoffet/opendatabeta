@@ -1,0 +1,2476 @@
+{
+	"nodes": [{
+		"label": "Special Interest 31",
+		"x": 269.71978759765625,
+		"y": -215.56707763671875,
+		"id": "42",
+		"attributes": {
+			"Min Year": 2013,
+			"Title": "Developer",
+			"Total Donation Amount": 3750.0,
+			"Image": "",
+			"Weight": "18.0",
+			"Name": "Special Interest 31",
+			"Industry": "Real Estate",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 9.0,
+			"NodeID": "42",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 18.0
+	}, {
+		"label": "Special Interest 28",
+		"x": -257.8171081542969,
+		"y": -68.80777740478516,
+		"id": "39",
+		"attributes": {
+			"Min Year": 2003,
+			"Title": "Developer",
+			"Total Donation Amount": 9475.0,
+			"Image": "",
+			"Weight": "46.0",
+			"Name": "Special Interest 28",
+			"Industry": "Developer",
+			"Max Year": 2014,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 25.0,
+			"NodeID": "39",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 46.0
+	}, {
+		"label": "Special Interest 35",
+		"x": 227.7716522216797,
+		"y": -115.31590270996094,
+		"id": "46",
+		"attributes": {
+			"Min Year": 2009,
+			"Title": "Developer",
+			"Total Donation Amount": 9300.0,
+			"Image": "",
+			"Weight": "45.0",
+			"Name": "Special Interest 35",
+			"Industry": "Developer",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 24.0,
+			"NodeID": "46",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 45.0
+	}, {
+		"label": "Special Interest 13",
+		"x": 183.07337951660156,
+		"y": 181.43321228027344,
+		"id": "24",
+		"attributes": {
+			"Min Year": 2011,
+			"Title": "Developer",
+			"Total Donation Amount": 2375.0,
+			"Image": "",
+			"Weight": "12.0",
+			"Name": "Special Interest 13",
+			"Industry": "Developer",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 19.0,
+			"NodeID": "24",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 12.0
+	}, {
+		"label": "Candidate 1",
+		"x": -271.9249572753906,
+		"y": -302.19244384765625,
+		"id": "8",
+		"attributes": {
+			"Min Year": 2015,
+			"Title": "Council Member",
+			"Total Donation Amount": 25.0,
+			"Image": "",
+			"Weight": "5.0",
+			"Name": "Candidate 1",
+			"Industry": "",
+			"Max Year": 2015,
+			"Ward": "At Large",
+			"Affiliates": "",
+			"Total Developer Donations": 1.0,
+			"NodeID": "8",
+			"Incumbent": "Yes"
+		},
+		"color": "rgb(255,15,58)",
+		"size": 5.0
+	}, {
+		"label": "Special Interest 21",
+		"x": -30.386505126953125,
+		"y": -213.75514221191406,
+		"id": "32",
+		"attributes": {
+			"Min Year": 2010,
+			"Title": "Developer",
+			"Total Donation Amount": 13400.0,
+			"Image": "",
+			"Weight": "65.0",
+			"Name": "Special Interest 21",
+			"Industry": "Developer",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 33.0,
+			"NodeID": "32",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 65.0
+	}, {
+		"label": "Candidate 8",
+		"x": 329.53582763671875,
+		"y": 110.8689193725586,
+		"id": "7",
+		"attributes": {
+			"Min Year": 2009,
+			"Title": "Former Council Member",
+			"Total Donation Amount": 5175.0,
+			"Image": "",
+			"Weight": "8.0",
+			"Name": "Candidate 8",
+			"Industry": "",
+			"Max Year": 2015,
+			"Ward": "At Large",
+			"Affiliates": "",
+			"Total Developer Donations": 27.0,
+			"NodeID": "7",
+			"Incumbent": "No"
+		},
+		"color": "rgb(255,184,188)",
+		"size": 8.0
+	}, {
+		"label": "Candidate 10",
+		"x": -15.16576862335205,
+		"y": -383.92333984375,
+		"id": "9",
+		"attributes": {
+			"Min Year": 2013,
+			"Title": "Council Member",
+			"Total Donation Amount": 1050.0,
+			"Image": "",
+			"Weight": "5.0",
+			"Name": "Candidate 10",
+			"Industry": "",
+			"Max Year": 2014,
+			"Ward": "At Large",
+			"Affiliates": "",
+			"Total Developer Donations": 4.0,
+			"NodeID": "9",
+			"Incumbent": "Yes"
+		},
+		"color": "rgb(255,15,58)",
+		"size": 5.0
+	}, {
+		"label": "Candidate 12",
+		"x": -386.02825927734375,
+		"y": -159.05413818359375,
+		"id": "11",
+		"attributes": {
+			"Min Year": 2015,
+			"Title": "Former Council Member",
+			"Total Donation Amount": 30.0,
+			"Image": "",
+			"Weight": "5.0",
+			"Name": "Candidate 12",
+			"Industry": "",
+			"Max Year": 2015,
+			"Ward": "At Large",
+			"Affiliates": "",
+			"Total Developer Donations": 1.0,
+			"NodeID": "11",
+			"Incumbent": "No"
+		},
+		"color": "rgb(255,184,188)",
+		"size": 5.0
+	}, {
+		"label": "Special Interest 23",
+		"x": 293.9458923339844,
+		"y": 196.4782257080078,
+		"id": "34",
+		"attributes": {
+			"Min Year": 2011,
+			"Title": "Developer",
+			"Total Donation Amount": 2325.0,
+			"Image": "",
+			"Weight": "11.0",
+			"Name": "Special Interest 23",
+			"Industry": "Real Estate",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 7.0,
+			"NodeID": "34",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 11.0
+	}, {
+		"label": "Special Interest 7",
+		"x": -309.58917236328125,
+		"y": -97.707275390625,
+		"id": "18",
+		"attributes": {
+			"Min Year": 2003,
+			"Title": "Developer",
+			"Total Donation Amount": 2900.0,
+			"Image": "",
+			"Weight": "14.0",
+			"Name": "Special Interest 7",
+			"Industry": "Construction",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 14.0,
+			"NodeID": "18",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 14.0
+	}, {
+		"label": "Special Interest 16",
+		"x": -119.74827575683594,
+		"y": 65.84574127197266,
+		"id": "27",
+		"attributes": {
+			"Min Year": 2002,
+			"Title": "Developer",
+			"Total Donation Amount": 33350.0,
+			"Image": "",
+			"Weight": "162.0",
+			"Name": "Special Interest 16",
+			"Industry": "Developer",
+			"Max Year": 2014,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 78.0,
+			"NodeID": "27",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 162.0
+	}, {
+		"label": "Candidate 9",
+		"x": -106.4651870727539,
+		"y": 163.04933166503906,
+		"id": "0",
+		"attributes": {
+			"Min Year": 2005,
+			"Title": "Council Member",
+			"Total Donation Amount": 102095.0,
+			"Image": "",
+			"Weight": "164.0",
+			"Name": "Candidate 9",
+			"Industry": "",
+			"Max Year": 2015,
+			"Ward": "At Large",
+			"Affiliates": "",
+			"Total Developer Donations": 340.0,
+			"NodeID": "0",
+			"Incumbent": "Yes"
+		},
+		"color": "rgb(255,15,58)",
+		"size": 164.0
+	}, {
+		"label": "Special Interest 27",
+		"x": 190.21116638183594,
+		"y": -237.6030731201172,
+		"id": "38",
+		"attributes": {
+			"Min Year": 2013,
+			"Title": "Developer",
+			"Total Donation Amount": 8500.0,
+			"Image": "",
+			"Weight": "41.0",
+			"Name": "Special Interest 27",
+			"Industry": "Developer",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 13.0,
+			"NodeID": "38",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 41.0
+	}, {
+		"label": "Special Interest 5",
+		"x": 123.41907501220703,
+		"y": -311.1814880371094,
+		"id": "16",
+		"attributes": {
+			"Min Year": 2002,
+			"Title": "Developer",
+			"Total Donation Amount": 2650.0,
+			"Image": "",
+			"Weight": "13.0",
+			"Name": "Special Interest 5",
+			"Industry": "Developer",
+			"Max Year": 2013,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 14.0,
+			"NodeID": "16",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 13.0
+	}, {
+		"label": "Special Interest 40",
+		"x": 228.36831665039062,
+		"y": 240.15980529785156,
+		"id": "51",
+		"attributes": {
+			"Min Year": 2009,
+			"Title": "Developer",
+			"Total Donation Amount": 2750.0,
+			"Image": "",
+			"Weight": "13.0",
+			"Name": "Special Interest 40",
+			"Industry": "Attorney",
+			"Max Year": 2014,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 6.0,
+			"NodeID": "51",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 13.0
+	}, {
+		"label": "Special Interest 36",
+		"x": 229.35635375976562,
+		"y": 130.79112243652344,
+		"id": "47",
+		"attributes": {
+			"Min Year": 2009,
+			"Title": "Developer",
+			"Total Donation Amount": 4100.0,
+			"Image": "",
+			"Weight": "20.0",
+			"Name": "Special Interest 36",
+			"Industry": "Construction",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 17.0,
+			"NodeID": "47",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 20.0
+	}, {
+		"label": "Special Interest 12",
+		"x": -233.54116821289062,
+		"y": 203.58599853515625,
+		"id": "23",
+		"attributes": {
+			"Min Year": 2009,
+			"Title": "Developer",
+			"Total Donation Amount": 5600.0,
+			"Image": "",
+			"Weight": "27.0",
+			"Name": "Special Interest 12",
+			"Industry": "Developer",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 24.0,
+			"NodeID": "23",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 27.0
+	}, {
+		"label": "Candidate 5",
+		"x": 145.27223205566406,
+		"y": -177.1136016845703,
+		"id": "4",
+		"attributes": {
+			"Min Year": 2013,
+			"Title": "Council Member",
+			"Total Donation Amount": 48900.0,
+			"Image": "",
+			"Weight": "78.0",
+			"Name": "Candidate 5",
+			"Industry": "",
+			"Max Year": 2015,
+			"Ward": "At Large",
+			"Affiliates": "",
+			"Total Developer Donations": 110.0,
+			"NodeID": "4",
+			"Incumbent": "Yes"
+		},
+		"color": "rgb(255,15,58)",
+		"size": 78.0
+	}, {
+		"label": "Special Interest 39",
+		"x": 348.43963623046875,
+		"y": -8.344901084899902,
+		"id": "50",
+		"attributes": {
+			"Min Year": 2013,
+			"Title": "Developer",
+			"Total Donation Amount": 2925.0,
+			"Image": "",
+			"Weight": "14.0",
+			"Name": "Special Interest 39",
+			"Industry": "Developer",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 10.0,
+			"NodeID": "50",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 14.0
+	}, {
+		"label": "Special Interest 2",
+		"x": 214.3267059326172,
+		"y": -289.3318786621094,
+		"id": "13",
+		"attributes": {
+			"Min Year": 2013,
+			"Title": "Developer",
+			"Total Donation Amount": 2750.0,
+			"Image": "",
+			"Weight": "13.0",
+			"Name": "Special Interest 2",
+			"Industry": "Construction",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 4.0,
+			"NodeID": "13",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 13.0
+	}, {
+		"label": "Special Interest 11",
+		"x": -22.078170776367188,
+		"y": 344.6121826171875,
+		"id": "22",
+		"attributes": {
+			"Min Year": 2005,
+			"Title": "Developer",
+			"Total Donation Amount": 2725.0,
+			"Image": "",
+			"Weight": "13.0",
+			"Name": "Special Interest 11",
+			"Industry": "Developer",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 18.0,
+			"NodeID": "22",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 13.0
+	}, {
+		"label": "Candidate 2",
+		"x": -153.04978942871094,
+		"y": -220.050048828125,
+		"id": "1",
+		"attributes": {
+			"Min Year": 2010,
+			"Title": "Former Council Member",
+			"Total Donation Amount": 24850.0,
+			"Image": "",
+			"Weight": "40.0",
+			"Name": "Candidate 2",
+			"Industry": "",
+			"Max Year": 2015,
+			"Ward": "At Large",
+			"Affiliates": "",
+			"Total Developer Donations": 70.0,
+			"NodeID": "1",
+			"Incumbent": "No"
+		},
+		"color": "rgb(255,184,188)",
+		"size": 40.0
+	}, {
+		"label": "Candidate 3",
+		"x": 153.20851135253906,
+		"y": 15.361610412597656,
+		"id": "2",
+		"attributes": {
+			"Min Year": 2009,
+			"Title": "Council Member",
+			"Total Donation Amount": 80354.0,
+			"Image": "",
+			"Weight": "129.0",
+			"Name": "Candidate 3",
+			"Industry": "",
+			"Max Year": 2015,
+			"Ward": "At Large",
+			"Affiliates": "",
+			"Total Developer Donations": 283.0,
+			"NodeID": "2",
+			"Incumbent": "Yes"
+		},
+		"color": "rgb(255,15,58)",
+		"size": 129.0
+	}, {
+		"label": "Candidate 4",
+		"x": -169.0166778564453,
+		"y": -21.134849548339844,
+		"id": "3",
+		"attributes": {
+			"Min Year": 2002,
+			"Title": "Council Member",
+			"Total Donation Amount": 124715.0,
+			"Image": "",
+			"Weight": "200.0",
+			"Name": "Candidate 4",
+			"Industry": "",
+			"Max Year": 2015,
+			"Ward": "At Large",
+			"Affiliates": "",
+			"Total Developer Donations": 440.0,
+			"NodeID": "3",
+			"Incumbent": "Yes"
+		},
+		"color": "rgb(255,15,58)",
+		"size": 200.0
+	}, {
+		"label": "Special Interest 33",
+		"x": -208.13043212890625,
+		"y": 91.36165618896484,
+		"id": "44",
+		"attributes": {
+			"Min Year": 2002,
+			"Title": "Developer",
+			"Total Donation Amount": 17175.0,
+			"Image": "",
+			"Weight": "83.0",
+			"Name": "Special Interest 33",
+			"Industry": "Attorney",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 79.0,
+			"NodeID": "44",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 83.0
+	}, {
+		"label": "Special Interest 17",
+		"x": 32.465293884277344,
+		"y": -132.60203552246094,
+		"id": "28",
+		"attributes": {
+			"Min Year": 2011,
+			"Title": "Developer",
+			"Total Donation Amount": 10500.0,
+			"Image": "",
+			"Weight": "51.0",
+			"Name": "Special Interest 17",
+			"Industry": "Attorney",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 39.0,
+			"NodeID": "28",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 51.0
+	}, {
+		"label": "Special Interest 15",
+		"x": 45.628902435302734,
+		"y": 44.38407516479492,
+		"id": "26",
+		"attributes": {
+			"Min Year": 2003,
+			"Title": "Developer",
+			"Total Donation Amount": 5950.0,
+			"Image": "",
+			"Weight": "29.0",
+			"Name": "Special Interest 15",
+			"Industry": "Real Estate",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 23.0,
+			"NodeID": "26",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 29.0
+	}, {
+		"label": "Special Interest 14",
+		"x": -308.24334716796875,
+		"y": 161.46817016601562,
+		"id": "25",
+		"attributes": {
+			"Min Year": 2005,
+			"Title": "Developer",
+			"Total Donation Amount": 3000.0,
+			"Image": "",
+			"Weight": "15.0",
+			"Name": "Special Interest 14",
+			"Industry": "Real Estate",
+			"Max Year": 2013,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 12.0,
+			"NodeID": "25",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 15.0
+	}, {
+		"label": "Special Interest 19",
+		"x": 141.34271240234375,
+		"y": 278.97991943359375,
+		"id": "30",
+		"attributes": {
+			"Min Year": 2008,
+			"Title": "Developer",
+			"Total Donation Amount": 5075.0,
+			"Image": "",
+			"Weight": "25.0",
+			"Name": "Special Interest 19",
+			"Industry": "Real Estate",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 35.0,
+			"NodeID": "30",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 25.0
+	}, {
+		"label": "Special Interest 9",
+		"x": -64.83870697021484,
+		"y": 52.79274368286133,
+		"id": "20",
+		"attributes": {
+			"Min Year": 2002,
+			"Title": "Developer",
+			"Total Donation Amount": 8625.0,
+			"Image": "",
+			"Weight": "42.0",
+			"Name": "Special Interest 9",
+			"Industry": "Real Estate",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 44.0,
+			"NodeID": "20",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 42.0
+	}, {
+		"label": "Special Interest 26",
+		"x": -219.99952697753906,
+		"y": -112.4502182006836,
+		"id": "37",
+		"attributes": {
+			"Min Year": 2002,
+			"Title": "Developer",
+			"Total Donation Amount": 5450.0,
+			"Image": "",
+			"Weight": "26.0",
+			"Name": "Special Interest 26",
+			"Industry": "Developer",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 18.0,
+			"NodeID": "37",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 26.0
+	}, {
+		"label": "Special Interest 1",
+		"x": 269.7356262207031,
+		"y": -38.877750396728516,
+		"id": "12",
+		"attributes": {
+			"Min Year": 2011,
+			"Title": "Developer",
+			"Total Donation Amount": 2600.0,
+			"Image": "",
+			"Weight": "13.0",
+			"Name": "Special Interest 1",
+			"Industry": "Developer",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 11.0,
+			"NodeID": "12",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 13.0
+	}, {
+		"label": "Special Interest 3",
+		"x": -28.114856719970703,
+		"y": 97.50143432617188,
+		"id": "14",
+		"attributes": {
+			"Min Year": 2007,
+			"Title": "Developer",
+			"Total Donation Amount": 41150.0,
+			"Image": "",
+			"Weight": "200.0",
+			"Name": "Special Interest 3",
+			"Industry": "Developer",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 79.0,
+			"NodeID": "14",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 200.0
+	}, {
+		"label": "The Mayor",
+		"x": 52.181495666503906,
+		"y": 149.40151977539062,
+		"id": "5",
+		"attributes": {
+			"Min Year": 2005,
+			"Title": "Mayor",
+			"Total Donation Amount": 49306.0,
+			"Image": "",
+			"Weight": "79.0",
+			"Name": "The Mayor",
+			"Industry": "",
+			"Max Year": 2015,
+			"Ward": "At Large",
+			"Affiliates": "",
+			"Total Developer Donations": 150.0,
+			"NodeID": "5",
+			"Incumbent": "Yes"
+		},
+		"color": "rgb(0,183,218)",
+		"size": 79.0
+	}, {
+		"label": "Special Interest 4",
+		"x": 272.0042724609375,
+		"y": 34.764060974121094,
+		"id": "15",
+		"attributes": {
+			"Min Year": 2013,
+			"Title": "Developer",
+			"Total Donation Amount": 2250.0,
+			"Image": "",
+			"Weight": "11.0",
+			"Name": "Special Interest 4",
+			"Industry": "Real Estate",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 4.0,
+			"NodeID": "15",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 11.0
+	}, {
+		"label": "Special Interest 18",
+		"x": -312.6795349121094,
+		"y": 78.99907684326172,
+		"id": "29",
+		"attributes": {
+			"Min Year": 2008,
+			"Title": "Developer",
+			"Total Donation Amount": 5500.0,
+			"Image": "",
+			"Weight": "27.0",
+			"Name": "Special Interest 18",
+			"Industry": "Developer",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 11.0,
+			"NodeID": "29",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 27.0
+	}, {
+		"label": "Special Interest 10",
+		"x": 54.098358154296875,
+		"y": 309.4644775390625,
+		"id": "21",
+		"attributes": {
+			"Min Year": 2013,
+			"Title": "Developer",
+			"Total Donation Amount": 3900.0,
+			"Image": "",
+			"Weight": "19.0",
+			"Name": "Special Interest 10",
+			"Industry": "Architect",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 15.0,
+			"NodeID": "21",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 19.0
+	}, {
+		"label": "Special Interest 37",
+		"x": -144.76846313476562,
+		"y": 328.4424743652344,
+		"id": "48",
+		"attributes": {
+			"Min Year": 2002,
+			"Title": "Developer",
+			"Total Donation Amount": 2575.0,
+			"Image": "",
+			"Weight": "13.0",
+			"Name": "Special Interest 37",
+			"Industry": "Real Estate",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 19.0,
+			"NodeID": "48",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 13.0
+	}, {
+		"label": "Special Interest 34",
+		"x": 69.03837585449219,
+		"y": -255.90188598632812,
+		"id": "45",
+		"attributes": {
+			"Min Year": 2003,
+			"Title": "Developer",
+			"Total Donation Amount": 3850.0,
+			"Image": "",
+			"Weight": "19.0",
+			"Name": "Special Interest 34",
+			"Industry": "Developer",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 11.0,
+			"NodeID": "45",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 19.0
+	}, {
+		"label": "Special Interest 6",
+		"x": -71.04536437988281,
+		"y": 290.8979187011719,
+		"id": "17",
+		"attributes": {
+			"Min Year": 2007,
+			"Title": "Developer",
+			"Total Donation Amount": 4000.0,
+			"Image": "",
+			"Weight": "19.0",
+			"Name": "Special Interest 6",
+			"Industry": "Developer",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 8.0,
+			"NodeID": "17",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 19.0
+	}, {
+		"label": "Special Interest 20",
+		"x": 45.57154846191406,
+		"y": -52.15803909301758,
+		"id": "31",
+		"attributes": {
+			"Min Year": 2011,
+			"Title": "Developer",
+			"Total Donation Amount": 14100.0,
+			"Image": "",
+			"Weight": "69.0",
+			"Name": "Special Interest 20",
+			"Industry": "Developer",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 38.0,
+			"NodeID": "31",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 69.0
+	}, {
+		"label": "Special Interest 30",
+		"x": -98.53304290771484,
+		"y": -141.77035522460938,
+		"id": "41",
+		"attributes": {
+			"Min Year": 2004,
+			"Title": "Developer",
+			"Total Donation Amount": 5600.0,
+			"Image": "",
+			"Weight": "27.0",
+			"Name": "Special Interest 30",
+			"Industry": "Construction",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 11.0,
+			"NodeID": "41",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 27.0
+	}, {
+		"label": "Candidate 7",
+		"x": -117.58731079101562,
+		"y": -335.16864013671875,
+		"id": "6",
+		"attributes": {
+			"Min Year": 2005,
+			"Title": "Council Member",
+			"Total Donation Amount": 7150.0,
+			"Image": "",
+			"Weight": "11.0",
+			"Name": "Candidate 7",
+			"Industry": "",
+			"Max Year": 2015,
+			"Ward": "At Large",
+			"Affiliates": "",
+			"Total Developer Donations": 23.0,
+			"NodeID": "6",
+			"Incumbent": "Yes"
+		},
+		"color": "rgb(255,15,58)",
+		"size": 11.0
+	}, {
+		"label": "Special Interest 22",
+		"x": -343.5220947265625,
+		"y": -54.57522201538086,
+		"id": "33",
+		"attributes": {
+			"Min Year": 2004,
+			"Title": "Developer",
+			"Total Donation Amount": 2300.0,
+			"Image": "",
+			"Weight": "11.0",
+			"Name": "Special Interest 22",
+			"Industry": "Real Estate",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 12.0,
+			"NodeID": "33",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 11.0
+	}, {
+		"label": "Candidate 11",
+		"x": 333.9847412109375,
+		"y": -118.76994323730469,
+		"id": "10",
+		"attributes": {
+			"Min Year": 2013,
+			"Title": "Council Member",
+			"Total Donation Amount": 2864.0,
+			"Image": "",
+			"Weight": "5.0",
+			"Name": "Candidate 11",
+			"Industry": "",
+			"Max Year": 2015,
+			"Ward": "At Large",
+			"Affiliates": "",
+			"Total Developer Donations": 11.0,
+			"NodeID": "10",
+			"Incumbent": "Yes"
+		},
+		"color": "rgb(255,15,58)",
+		"size": 5.0
+	}, {
+		"label": "Special Interest 29",
+		"x": -52.141357421875,
+		"y": -64.06167602539062,
+		"id": "40",
+		"attributes": {
+			"Min Year": 2004,
+			"Title": "Developer",
+			"Total Donation Amount": 24775.0,
+			"Image": "",
+			"Weight": "120.0",
+			"Name": "Special Interest 29",
+			"Industry": "Developer",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 52.0,
+			"NodeID": "40",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 120.0
+	}, {
+		"label": "Special Interest 32",
+		"x": 5.5492939949035645,
+		"y": -305.0157165527344,
+		"id": "43",
+		"attributes": {
+			"Min Year": 2014,
+			"Title": "Developer",
+			"Total Donation Amount": 5300.0,
+			"Image": "",
+			"Weight": "26.0",
+			"Name": "Special Interest 32",
+			"Industry": "Developer",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 16.0,
+			"NodeID": "43",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 26.0
+	}, {
+		"label": "Special Interest 8",
+		"x": -282.01068115234375,
+		"y": -175.119873046875,
+		"id": "19",
+		"attributes": {
+			"Min Year": 2002,
+			"Title": "Developer",
+			"Total Donation Amount": 2631.0,
+			"Image": "",
+			"Weight": "13.0",
+			"Name": "Special Interest 8",
+			"Industry": "Developer",
+			"Max Year": 2011,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 24.0,
+			"NodeID": "19",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 13.0
+	}, {
+		"label": "Special Interest 24",
+		"x": -314.4049987792969,
+		"y": 7.824269771575928,
+		"id": "35",
+		"attributes": {
+			"Min Year": 2005,
+			"Title": "Developer",
+			"Total Donation Amount": 5425.0,
+			"Image": "",
+			"Weight": "26.0",
+			"Name": "Special Interest 24",
+			"Industry": "Developer",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 32.0,
+			"NodeID": "35",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 26.0
+	}, {
+		"label": "Special Interest 25",
+		"x": -188.0430450439453,
+		"y": 260.4200439453125,
+		"id": "36",
+		"attributes": {
+			"Min Year": 2002,
+			"Title": "Developer",
+			"Total Donation Amount": 4775.0,
+			"Image": "",
+			"Weight": "23.0",
+			"Name": "Special Interest 25",
+			"Industry": "Real Estate",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 30.0,
+			"NodeID": "36",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 23.0
+	}, {
+		"label": "Special Interest 38",
+		"x": -19.174222946166992,
+		"y": 12.395576477050781,
+		"id": "49",
+		"attributes": {
+			"Min Year": 2002,
+			"Title": "Developer",
+			"Total Donation Amount": 31750.0,
+			"Image": "",
+			"Weight": "154.0",
+			"Name": "Special Interest 38",
+			"Industry": "Developer",
+			"Max Year": 2015,
+			"Ward": "",
+			"Affiliates": "unknown</br>unknown",
+			"Total Developer Donations": 64.0,
+			"NodeID": "49",
+			"Incumbent": "Developer"
+		},
+		"color": "rgb(190,190,190)",
+		"size": 154.0
+	}],
+	"edges": [{
+		"label": "49",
+		"source": "27",
+		"target": "3",
+		"id": "49",
+		"color": "rgba(107,117,123,0.4)",
+		"size": 100.0,
+		"amount": 14500.0
+	}, {
+		"label": "108",
+		"source": "40",
+		"target": "4",
+		"id": "108",
+		"color": "rgba(107,117,123,0.1816)",
+		"size": 16.0,
+		"amount": 2400.0
+	}, {
+		"label": "146",
+		"source": "47",
+		"target": "10",
+		"id": "146",
+		"color": "rgba(107,117,123,0.166)",
+		"size": 10.0,
+		"amount": 1350.0
+	}, {
+		"label": "70",
+		"source": "30",
+		"target": "7",
+		"id": "70",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 350.0
+	}, {
+		"label": "139",
+		"source": "46",
+		"target": "0",
+		"id": "139",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 300.0
+	}, {
+		"label": "149",
+		"source": "48",
+		"target": "3",
+		"id": "149",
+		"color": "rgba(107,117,123,0.166)",
+		"size": 10.0,
+		"amount": 1475.0
+	}, {
+		"label": "152",
+		"source": "49",
+		"target": "1",
+		"id": "152",
+		"color": "rgba(107,117,123,0.166)",
+		"size": 10.0,
+		"amount": 1500.0
+	}, {
+		"label": "63",
+		"source": "29",
+		"target": "5",
+		"id": "63",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 500.0
+	}, {
+		"label": "150",
+		"source": "48",
+		"target": "5",
+		"id": "150",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 250.0
+	}, {
+		"label": "13",
+		"source": "17",
+		"target": "0",
+		"id": "13",
+		"color": "rgba(107,117,123,0.20240000000000002)",
+		"size": 24.0,
+		"amount": 3500.0
+	}, {
+		"label": "90",
+		"source": "34",
+		"target": "7",
+		"id": "90",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 475.0
+	}, {
+		"label": "42",
+		"source": "25",
+		"target": "3",
+		"id": "42",
+		"color": "rgba(107,117,123,0.166)",
+		"size": 10.0,
+		"amount": 1450.0
+	}, {
+		"label": "50",
+		"source": "27",
+		"target": "4",
+		"id": "50",
+		"color": "rgba(107,117,123,0.15560000000000002)",
+		"size": 6.0,
+		"amount": 1000.0
+	}, {
+		"label": "111",
+		"source": "40",
+		"target": "7",
+		"id": "111",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 400.0
+	}, {
+		"label": "82",
+		"source": "32",
+		"target": "4",
+		"id": "82",
+		"color": "rgba(107,117,123,0.17120000000000002)",
+		"size": 12.0,
+		"amount": 1750.0
+	}, {
+		"label": "112",
+		"source": "40",
+		"target": "10",
+		"id": "112",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 200.0
+	}, {
+		"label": "114",
+		"source": "41",
+		"target": "3",
+		"id": "114",
+		"color": "rgba(107,117,123,0.17120000000000002)",
+		"size": 12.0,
+		"amount": 1600.0
+	}, {
+		"label": "162",
+		"source": "50",
+		"target": "10",
+		"id": "162",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 100.0
+	}, {
+		"label": "17",
+		"source": "19",
+		"target": "2",
+		"id": "17",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 150.0
+	}, {
+		"label": "155",
+		"source": "49",
+		"target": "4",
+		"id": "155",
+		"color": "rgba(107,117,123,0.21280000000000002)",
+		"size": 28.0,
+		"amount": 4000.0
+	}, {
+		"label": "88",
+		"source": "33",
+		"target": "3",
+		"id": "88",
+		"color": "rgba(107,117,123,0.1816)",
+		"size": 16.0,
+		"amount": 2300.0
+	}, {
+		"label": "153",
+		"source": "49",
+		"target": "2",
+		"id": "153",
+		"color": "rgba(107,117,123,0.20240000000000002)",
+		"size": 24.0,
+		"amount": 3500.0
+	}, {
+		"label": "95",
+		"source": "36",
+		"target": "0",
+		"id": "95",
+		"color": "rgba(107,117,123,0.1816)",
+		"size": 16.0,
+		"amount": 2225.0
+	}, {
+		"label": "41",
+		"source": "25",
+		"target": "0",
+		"id": "41",
+		"color": "rgba(107,117,123,0.166)",
+		"size": 10.0,
+		"amount": 1550.0
+	}, {
+		"label": "46",
+		"source": "26",
+		"target": "7",
+		"id": "46",
+		"color": "rgba(107,117,123,0.16080000000000003)",
+		"size": 8.0,
+		"amount": 1050.0
+	}, {
+		"label": "55",
+		"source": "28",
+		"target": "3",
+		"id": "55",
+		"color": "rgba(107,117,123,0.166)",
+		"size": 10.0,
+		"amount": 1450.0
+	}, {
+		"label": "76",
+		"source": "31",
+		"target": "5",
+		"id": "76",
+		"color": "rgba(107,117,123,0.18680000000000002)",
+		"size": 18.0,
+		"amount": 2700.0
+	}, {
+		"label": "72",
+		"source": "31",
+		"target": "1",
+		"id": "72",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 500.0
+	}, {
+		"label": "121",
+		"source": "43",
+		"target": "0",
+		"id": "121",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 500.0
+	}, {
+		"label": "3",
+		"source": "14",
+		"target": "0",
+		"id": "3",
+		"color": "rgba(107,117,123,0.36360000000000003)",
+		"size": 86.0,
+		"amount": 12500.0
+	}, {
+		"label": "16",
+		"source": "19",
+		"target": "0",
+		"id": "16",
+		"color": "rgba(107,117,123,0.166)",
+		"size": 10.0,
+		"amount": 1375.0
+	}, {
+		"label": "23",
+		"source": "20",
+		"target": "2",
+		"id": "23",
+		"color": "rgba(107,117,123,0.166)",
+		"size": 10.0,
+		"amount": 1325.0
+	}, {
+		"label": "86",
+		"source": "32",
+		"target": "9",
+		"id": "86",
+		"color": "rgba(107,117,123,0.16080000000000003)",
+		"size": 8.0,
+		"amount": 1050.0
+	}, {
+		"label": "116",
+		"source": "41",
+		"target": "5",
+		"id": "116",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 500.0
+	}, {
+		"label": "10",
+		"source": "16",
+		"target": "2",
+		"id": "10",
+		"color": "rgba(107,117,123,0.16080000000000003)",
+		"size": 8.0,
+		"amount": 1150.0
+	}, {
+		"label": "12",
+		"source": "16",
+		"target": "5",
+		"id": "12",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 300.0
+	}, {
+		"label": "104",
+		"source": "40",
+		"target": "0",
+		"id": "104",
+		"color": "rgba(107,117,123,0.2232)",
+		"size": 32.0,
+		"amount": 4700.0
+	}, {
+		"label": "6",
+		"source": "14",
+		"target": "4",
+		"id": "6",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 200.0
+	}, {
+		"label": "39",
+		"source": "24",
+		"target": "2",
+		"id": "39",
+		"color": "rgba(107,117,123,0.17120000000000002)",
+		"size": 12.0,
+		"amount": 1700.0
+	}, {
+		"label": "69",
+		"source": "30",
+		"target": "5",
+		"id": "69",
+		"color": "rgba(107,117,123,0.17120000000000002)",
+		"size": 12.0,
+		"amount": 1650.0
+	}, {
+		"label": "117",
+		"source": "42",
+		"target": "1",
+		"id": "117",
+		"color": "rgba(107,117,123,0.15560000000000002)",
+		"size": 6.0,
+		"amount": 750.0
+	}, {
+		"label": "27",
+		"source": "21",
+		"target": "1",
+		"id": "27",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 300.0
+	}, {
+		"label": "98",
+		"source": "36",
+		"target": "4",
+		"id": "98",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 100.0
+	}, {
+		"label": "97",
+		"source": "36",
+		"target": "3",
+		"id": "97",
+		"color": "rgba(107,117,123,0.166)",
+		"size": 10.0,
+		"amount": 1575.0
+	}, {
+		"label": "137",
+		"source": "45",
+		"target": "5",
+		"id": "137",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 250.0
+	}, {
+		"label": "109",
+		"source": "40",
+		"target": "5",
+		"id": "109",
+		"color": "rgba(107,117,123,0.2076)",
+		"size": 26.0,
+		"amount": 3700.0
+	}, {
+		"label": "34",
+		"source": "22",
+		"target": "5",
+		"id": "34",
+		"color": "rgba(107,117,123,0.17120000000000002)",
+		"size": 12.0,
+		"amount": 1600.0
+	}, {
+		"label": "7",
+		"source": "14",
+		"target": "5",
+		"id": "7",
+		"color": "rgba(107,117,123,0.36360000000000003)",
+		"size": 86.0,
+		"amount": 12500.0
+	}, {
+		"label": "165",
+		"source": "51",
+		"target": "5",
+		"id": "165",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 250.0
+	}, {
+		"label": "68",
+		"source": "30",
+		"target": "4",
+		"id": "68",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 100.0
+	}, {
+		"label": "0",
+		"source": "12",
+		"target": "2",
+		"id": "0",
+		"color": "rgba(107,117,123,0.18680000000000002)",
+		"size": 18.0,
+		"amount": 2500.0
+	}, {
+		"label": "59",
+		"source": "28",
+		"target": "7",
+		"id": "59",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 150.0
+	}, {
+		"label": "161",
+		"source": "50",
+		"target": "7",
+		"id": "161",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 75.0
+	}, {
+		"label": "67",
+		"source": "30",
+		"target": "3",
+		"id": "67",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 250.0
+	}, {
+		"label": "43",
+		"source": "26",
+		"target": "0",
+		"id": "43",
+		"color": "rgba(107,117,123,0.17120000000000002)",
+		"size": 12.0,
+		"amount": 1750.0
+	}, {
+		"label": "36",
+		"source": "23",
+		"target": "2",
+		"id": "36",
+		"color": "rgba(107,117,123,0.166)",
+		"size": 10.0,
+		"amount": 1550.0
+	}, {
+		"label": "62",
+		"source": "29",
+		"target": "3",
+		"id": "62",
+		"color": "rgba(107,117,123,0.18680000000000002)",
+		"size": 18.0,
+		"amount": 2500.0
+	}, {
+		"label": "164",
+		"source": "51",
+		"target": "2",
+		"id": "164",
+		"color": "rgba(107,117,123,0.1764)",
+		"size": 14.0,
+		"amount": 2000.0
+	}, {
+		"label": "21",
+		"source": "19",
+		"target": "7",
+		"id": "21",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 200.0
+	}, {
+		"label": "32",
+		"source": "22",
+		"target": "0",
+		"id": "32",
+		"color": "rgba(107,117,123,0.15560000000000002)",
+		"size": 6.0,
+		"amount": 1000.0
+	}, {
+		"label": "132",
+		"source": "44",
+		"target": "5",
+		"id": "132",
+		"color": "rgba(107,117,123,0.1764)",
+		"size": 14.0,
+		"amount": 2150.0
+	}, {
+		"label": "56",
+		"source": "28",
+		"target": "4",
+		"id": "56",
+		"color": "rgba(107,117,123,0.16080000000000003)",
+		"size": 8.0,
+		"amount": 1100.0
+	}, {
+		"label": "115",
+		"source": "41",
+		"target": "4",
+		"id": "115",
+		"color": "rgba(107,117,123,0.1764)",
+		"size": 14.0,
+		"amount": 2000.0
+	}, {
+		"label": "93",
+		"source": "35",
+		"target": "2",
+		"id": "93",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 300.0
+	}, {
+		"label": "128",
+		"source": "44",
+		"target": "1",
+		"id": "128",
+		"color": "rgba(107,117,123,0.15560000000000002)",
+		"size": 6.0,
+		"amount": 850.0
+	}, {
+		"label": "151",
+		"source": "49",
+		"target": "0",
+		"id": "151",
+		"color": "rgba(107,117,123,0.27)",
+		"size": 50.0,
+		"amount": 7250.0
+	}, {
+		"label": "133",
+		"source": "44",
+		"target": "6",
+		"id": "133",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 200.0
+	}, {
+		"label": "25",
+		"source": "20",
+		"target": "5",
+		"id": "25",
+		"color": "rgba(107,117,123,0.16080000000000003)",
+		"size": 8.0,
+		"amount": 1050.0
+	}, {
+		"label": "122",
+		"source": "43",
+		"target": "1",
+		"id": "122",
+		"color": "rgba(107,117,123,0.17120000000000002)",
+		"size": 12.0,
+		"amount": 1750.0
+	}, {
+		"label": "1",
+		"source": "12",
+		"target": "3",
+		"id": "1",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 100.0
+	}, {
+		"label": "157",
+		"source": "50",
+		"target": "0",
+		"id": "157",
+		"color": "rgba(107,117,123,0.15560000000000002)",
+		"size": 6.0,
+		"amount": 750.0
+	}, {
+		"label": "156",
+		"source": "49",
+		"target": "5",
+		"id": "156",
+		"color": "rgba(107,117,123,0.2544)",
+		"size": 44.0,
+		"amount": 6500.0
+	}, {
+		"label": "124",
+		"source": "43",
+		"target": "4",
+		"id": "124",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 500.0
+	}, {
+		"label": "94",
+		"source": "35",
+		"target": "3",
+		"id": "94",
+		"color": "rgba(107,117,123,0.18680000000000002)",
+		"size": 18.0,
+		"amount": 2750.0
+	}, {
+		"label": "106",
+		"source": "40",
+		"target": "2",
+		"id": "106",
+		"color": "rgba(107,117,123,0.18680000000000002)",
+		"size": 18.0,
+		"amount": 2650.0
+	}, {
+		"label": "87",
+		"source": "32",
+		"target": "10",
+		"id": "87",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 500.0
+	}, {
+		"label": "158",
+		"source": "50",
+		"target": "2",
+		"id": "158",
+		"color": "rgba(107,117,123,0.16080000000000003)",
+		"size": 8.0,
+		"amount": 1250.0
+	}, {
+		"label": "14",
+		"source": "17",
+		"target": "5",
+		"id": "14",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 500.0
+	}, {
+		"label": "101",
+		"source": "39",
+		"target": "0",
+		"id": "101",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 100.0
+	}, {
+		"label": "15",
+		"source": "18",
+		"target": "3",
+		"id": "15",
+		"color": "rgba(107,117,123,0.192)",
+		"size": 20.0,
+		"amount": 2900.0
+	}, {
+		"label": "22",
+		"source": "20",
+		"target": "0",
+		"id": "22",
+		"color": "rgba(107,117,123,0.20240000000000002)",
+		"size": 24.0,
+		"amount": 3450.0
+	}, {
+		"label": "45",
+		"source": "26",
+		"target": "3",
+		"id": "45",
+		"color": "rgba(107,117,123,0.192)",
+		"size": 20.0,
+		"amount": 2850.0
+	}, {
+		"label": "125",
+		"source": "43",
+		"target": "5",
+		"id": "125",
+		"color": "rgba(107,117,123,0.16080000000000003)",
+		"size": 8.0,
+		"amount": 1300.0
+	}, {
+		"label": "73",
+		"source": "31",
+		"target": "2",
+		"id": "73",
+		"color": "rgba(107,117,123,0.192)",
+		"size": 20.0,
+		"amount": 3000.0
+	}, {
+		"label": "9",
+		"source": "16",
+		"target": "0",
+		"id": "9",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 350.0
+	}, {
+		"label": "30",
+		"source": "21",
+		"target": "4",
+		"id": "30",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 400.0
+	}, {
+		"label": "145",
+		"source": "47",
+		"target": "4",
+		"id": "145",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 250.0
+	}, {
+		"label": "83",
+		"source": "32",
+		"target": "5",
+		"id": "83",
+		"color": "rgba(107,117,123,0.1764)",
+		"size": 14.0,
+		"amount": 2000.0
+	}, {
+		"label": "130",
+		"source": "44",
+		"target": "3",
+		"id": "130",
+		"color": "rgba(107,117,123,0.24400000000000002)",
+		"size": 40.0,
+		"amount": 5775.0
+	}, {
+		"label": "38",
+		"source": "23",
+		"target": "5",
+		"id": "38",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 350.0
+	}, {
+		"label": "77",
+		"source": "31",
+		"target": "6",
+		"id": "77",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 500.0
+	}, {
+		"label": "120",
+		"source": "42",
+		"target": "7",
+		"id": "120",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 250.0
+	}, {
+		"label": "51",
+		"source": "27",
+		"target": "5",
+		"id": "51",
+		"color": "rgba(107,117,123,0.20240000000000002)",
+		"size": 24.0,
+		"amount": 3500.0
+	}, {
+		"label": "8",
+		"source": "15",
+		"target": "2",
+		"id": "8",
+		"color": "rgba(107,117,123,0.1816)",
+		"size": 16.0,
+		"amount": 2250.0
+	}, {
+		"label": "91",
+		"source": "35",
+		"target": "0",
+		"id": "91",
+		"color": "rgba(107,117,123,0.1764)",
+		"size": 14.0,
+		"amount": 1925.0
+	}, {
+		"label": "99",
+		"source": "37",
+		"target": "3",
+		"id": "99",
+		"color": "rgba(107,117,123,0.2388)",
+		"size": 38.0,
+		"amount": 5450.0
+	}, {
+		"label": "143",
+		"source": "47",
+		"target": "0",
+		"id": "143",
+		"color": "rgba(107,117,123,0.1764)",
+		"size": 14.0,
+		"amount": 2000.0
+	}, {
+		"label": "75",
+		"source": "31",
+		"target": "4",
+		"id": "75",
+		"color": "rgba(107,117,123,0.1764)",
+		"size": 14.0,
+		"amount": 2000.0
+	}, {
+		"label": "141",
+		"source": "46",
+		"target": "4",
+		"id": "141",
+		"color": "rgba(107,117,123,0.2544)",
+		"size": 44.0,
+		"amount": 6500.0
+	}, {
+		"label": "160",
+		"source": "50",
+		"target": "5",
+		"id": "160",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 250.0
+	}, {
+		"label": "64",
+		"source": "30",
+		"target": "0",
+		"id": "64",
+		"color": "rgba(107,117,123,0.166)",
+		"size": 10.0,
+		"amount": 1325.0
+	}, {
+		"label": "154",
+		"source": "49",
+		"target": "3",
+		"id": "154",
+		"color": "rgba(107,117,123,0.3012)",
+		"size": 62.0,
+		"amount": 9000.0
+	}, {
+		"label": "44",
+		"source": "26",
+		"target": "2",
+		"id": "44",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 300.0
+	}, {
+		"label": "136",
+		"source": "45",
+		"target": "3",
+		"id": "136",
+		"color": "rgba(107,117,123,0.15560000000000002)",
+		"size": 6.0,
+		"amount": 1000.0
+	}, {
+		"label": "65",
+		"source": "30",
+		"target": "1",
+		"id": "65",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 700.0
+	}, {
+		"label": "79",
+		"source": "32",
+		"target": "1",
+		"id": "79",
+		"color": "rgba(107,117,123,0.1764)",
+		"size": 14.0,
+		"amount": 2000.0
+	}, {
+		"label": "18",
+		"source": "19",
+		"target": "3",
+		"id": "18",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 700.0
+	}, {
+		"label": "102",
+		"source": "39",
+		"target": "3",
+		"id": "102",
+		"color": "rgba(107,117,123,0.3012)",
+		"size": 62.0,
+		"amount": 8875.0
+	}, {
+		"label": "74",
+		"source": "31",
+		"target": "3",
+		"id": "74",
+		"color": "rgba(107,117,123,0.19720000000000001)",
+		"size": 22.0,
+		"amount": 3200.0
+	}, {
+		"label": "40",
+		"source": "24",
+		"target": "3",
+		"id": "40",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 675.0
+	}, {
+		"label": "53",
+		"source": "28",
+		"target": "1",
+		"id": "53",
+		"color": "rgba(107,117,123,0.166)",
+		"size": 10.0,
+		"amount": 1400.0
+	}, {
+		"label": "107",
+		"source": "40",
+		"target": "3",
+		"id": "107",
+		"color": "rgba(107,117,123,0.2856)",
+		"size": 56.0,
+		"amount": 8050.0
+	}, {
+		"label": "138",
+		"source": "45",
+		"target": "6",
+		"id": "138",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 600.0
+	}, {
+		"label": "135",
+		"source": "45",
+		"target": "2",
+		"id": "135",
+		"color": "rgba(107,117,123,0.1764)",
+		"size": 14.0,
+		"amount": 2000.0
+	}, {
+		"label": "105",
+		"source": "40",
+		"target": "1",
+		"id": "105",
+		"color": "rgba(107,117,123,0.17120000000000002)",
+		"size": 12.0,
+		"amount": 1750.0
+	}, {
+		"label": "20",
+		"source": "19",
+		"target": "6",
+		"id": "20",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 150.0
+	}, {
+		"label": "81",
+		"source": "32",
+		"target": "3",
+		"id": "81",
+		"color": "rgba(107,117,123,0.18680000000000002)",
+		"size": 18.0,
+		"amount": 2600.0
+	}, {
+		"label": "96",
+		"source": "36",
+		"target": "2",
+		"id": "96",
+		"color": "rgba(107,117,123,0.15560000000000002)",
+		"size": 6.0,
+		"amount": 875.0
+	}, {
+		"label": "78",
+		"source": "32",
+		"target": "0",
+		"id": "78",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 500.0
+	}, {
+		"label": "144",
+		"source": "47",
+		"target": "2",
+		"id": "144",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 500.0
+	}, {
+		"label": "4",
+		"source": "14",
+		"target": "2",
+		"id": "4",
+		"color": "rgba(107,117,123,0.24920000000000003)",
+		"size": 42.0,
+		"amount": 6000.0
+	}, {
+		"label": "61",
+		"source": "29",
+		"target": "1",
+		"id": "61",
+		"color": "rgba(107,117,123,0.15560000000000002)",
+		"size": 6.0,
+		"amount": 1000.0
+	}, {
+		"label": "57",
+		"source": "28",
+		"target": "5",
+		"id": "57",
+		"color": "rgba(107,117,123,0.1764)",
+		"size": 14.0,
+		"amount": 2100.0
+	}, {
+		"label": "89",
+		"source": "34",
+		"target": "2",
+		"id": "89",
+		"color": "rgba(107,117,123,0.17120000000000002)",
+		"size": 12.0,
+		"amount": 1850.0
+	}, {
+		"label": "113",
+		"source": "41",
+		"target": "0",
+		"id": "113",
+		"color": "rgba(107,117,123,0.166)",
+		"size": 10.0,
+		"amount": 1500.0
+	}, {
+		"label": "140",
+		"source": "46",
+		"target": "2",
+		"id": "140",
+		"color": "rgba(107,117,123,0.15560000000000002)",
+		"size": 6.0,
+		"amount": 1000.0
+	}, {
+		"label": "163",
+		"source": "51",
+		"target": "0",
+		"id": "163",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 500.0
+	}, {
+		"label": "24",
+		"source": "20",
+		"target": "3",
+		"id": "24",
+		"color": "rgba(107,117,123,0.192)",
+		"size": 20.0,
+		"amount": 2800.0
+	}, {
+		"label": "2",
+		"source": "13",
+		"target": "4",
+		"id": "2",
+		"color": "rgba(107,117,123,0.18680000000000002)",
+		"size": 18.0,
+		"amount": 2750.0
+	}, {
+		"label": "110",
+		"source": "40",
+		"target": "6",
+		"id": "110",
+		"color": "rgba(107,117,123,0.15560000000000002)",
+		"size": 6.0,
+		"amount": 925.0
+	}, {
+		"label": "118",
+		"source": "42",
+		"target": "2",
+		"id": "118",
+		"color": "rgba(107,117,123,0.16080000000000003)",
+		"size": 8.0,
+		"amount": 1250.0
+	}, {
+		"label": "31",
+		"source": "21",
+		"target": "5",
+		"id": "31",
+		"color": "rgba(107,117,123,0.16080000000000003)",
+		"size": 8.0,
+		"amount": 1100.0
+	}, {
+		"label": "148",
+		"source": "48",
+		"target": "2",
+		"id": "148",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 125.0
+	}, {
+		"label": "52",
+		"source": "28",
+		"target": "0",
+		"id": "52",
+		"color": "rgba(107,117,123,0.16080000000000003)",
+		"size": 8.0,
+		"amount": 1200.0
+	}, {
+		"label": "134",
+		"source": "44",
+		"target": "7",
+		"id": "134",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 100.0
+	}, {
+		"label": "35",
+		"source": "23",
+		"target": "0",
+		"id": "35",
+		"color": "rgba(107,117,123,0.192)",
+		"size": 20.0,
+		"amount": 2850.0
+	}, {
+		"label": "92",
+		"source": "35",
+		"target": "1",
+		"id": "92",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 450.0
+	}, {
+		"label": "119",
+		"source": "42",
+		"target": "4",
+		"id": "119",
+		"color": "rgba(107,117,123,0.166)",
+		"size": 10.0,
+		"amount": 1500.0
+	}, {
+		"label": "80",
+		"source": "32",
+		"target": "2",
+		"id": "80",
+		"color": "rgba(107,117,123,0.17120000000000002)",
+		"size": 12.0,
+		"amount": 1750.0
+	}, {
+		"label": "103",
+		"source": "39",
+		"target": "4",
+		"id": "103",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 500.0
+	}, {
+		"label": "29",
+		"source": "21",
+		"target": "3",
+		"id": "29",
+		"color": "rgba(107,117,123,0.15560000000000002)",
+		"size": 6.0,
+		"amount": 1000.0
+	}, {
+		"label": "47",
+		"source": "27",
+		"target": "0",
+		"id": "47",
+		"color": "rgba(107,117,123,0.35840000000000005)",
+		"size": 84.0,
+		"amount": 12125.0
+	}, {
+		"label": "37",
+		"source": "23",
+		"target": "3",
+		"id": "37",
+		"color": "rgba(107,117,123,0.15560000000000002)",
+		"size": 6.0,
+		"amount": 850.0
+	}, {
+		"label": "28",
+		"source": "21",
+		"target": "2",
+		"id": "28",
+		"color": "rgba(107,117,123,0.15560000000000002)",
+		"size": 6.0,
+		"amount": 850.0
+	}, {
+		"label": "48",
+		"source": "27",
+		"target": "2",
+		"id": "48",
+		"color": "rgba(107,117,123,0.1816)",
+		"size": 16.0,
+		"amount": 2225.0
+	}, {
+		"label": "5",
+		"source": "14",
+		"target": "3",
+		"id": "5",
+		"color": "rgba(107,117,123,0.3168)",
+		"size": 68.0,
+		"amount": 9950.0
+	}, {
+		"label": "19",
+		"source": "19",
+		"target": "5",
+		"id": "19",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 56.0
+	}, {
+		"label": "58",
+		"source": "28",
+		"target": "6",
+		"id": "58",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 700.0
+	}, {
+		"label": "85",
+		"source": "32",
+		"target": "7",
+		"id": "85",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 250.0
+	}, {
+		"label": "129",
+		"source": "44",
+		"target": "2",
+		"id": "129",
+		"color": "rgba(107,117,123,0.1816)",
+		"size": 16.0,
+		"amount": 2350.0
+	}, {
+		"label": "147",
+		"source": "48",
+		"target": "0",
+		"id": "147",
+		"color": "rgba(107,117,123,0.15560000000000002)",
+		"size": 6.0,
+		"amount": 725.0
+	}, {
+		"label": "26",
+		"source": "21",
+		"target": "0",
+		"id": "26",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 250.0
+	}, {
+		"label": "60",
+		"source": "29",
+		"target": "0",
+		"id": "60",
+		"color": "rgba(107,117,123,0.166)",
+		"size": 10.0,
+		"amount": 1500.0
+	}, {
+		"label": "123",
+		"source": "43",
+		"target": "2",
+		"id": "123",
+		"color": "rgba(107,117,123,0.15560000000000002)",
+		"size": 6.0,
+		"amount": 1000.0
+	}, {
+		"label": "11",
+		"source": "16",
+		"target": "3",
+		"id": "11",
+		"color": "rgba(107,117,123,0.15560000000000002)",
+		"size": 6.0,
+		"amount": 850.0
+	}, {
+		"label": "126",
+		"source": "43",
+		"target": "10",
+		"id": "126",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 250.0
+	}, {
+		"label": "142",
+		"source": "46",
+		"target": "5",
+		"id": "142",
+		"color": "rgba(107,117,123,0.166)",
+		"size": 10.0,
+		"amount": 1500.0
+	}, {
+		"label": "54",
+		"source": "28",
+		"target": "2",
+		"id": "54",
+		"color": "rgba(107,117,123,0.1816)",
+		"size": 16.0,
+		"amount": 2400.0
+	}, {
+		"label": "66",
+		"source": "30",
+		"target": "2",
+		"id": "66",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 700.0
+	}, {
+		"label": "159",
+		"source": "50",
+		"target": "4",
+		"id": "159",
+		"color": "rgba(107,117,123,0.1504)",
+		"size": 4.0,
+		"amount": 500.0
+	}, {
+		"label": "71",
+		"source": "31",
+		"target": "0",
+		"id": "71",
+		"color": "rgba(107,117,123,0.1816)",
+		"size": 16.0,
+		"amount": 2200.0
+	}, {
+		"label": "33",
+		"source": "22",
+		"target": "3",
+		"id": "33",
+		"color": "rgba(107,117,123,0.14520000000000002)",
+		"size": 2.0,
+		"amount": 125.0
+	}, {
+		"label": "131",
+		"source": "44",
+		"target": "4",
+		"id": "131",
+		"color": "rgba(107,117,123,0.15560000000000002)",
+		"size": 6.0,
+		"amount": 800.0
+	}, {
+		"label": "84",
+		"source": "32",
+		"target": "6",
+		"id": "84",
+		"color": "rgba(107,117,123,0.15560000000000002)",
+		"size": 6.0,
+		"amount": 1000.0
+	}, {
+		"label": "100",
+		"source": "38",
+		"target": "4",
+		"id": "100",
+		"color": "rgba(107,117,123,0.29080000000000006)",
+		"size": 58.0,
+		"amount": 8500.0
+	}, {
+		"label": "127",
+		"source": "44",
+		"target": "0",
+		"id": "127",
+		"color": "rgba(107,117,123,0.22840000000000002)",
+		"size": 34.0,
+		"amount": 4950.0
+	}]
+}

@@ -1,0 +1,269 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" itemscope itemtype="http://schema.org/Map">
+
+<head>
+	<title>Interactive | Deals for Developers, Cash for Campaigns</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta charset="utf-8">
+	<meta name="description" content="Interactive: Explore the cozy financial ties between DC politicians and developers." /> 
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<meta name="twitter:site" content="@wamu885news"> 
+	<meta property="og:title" content="Interactive: Follow the Campaign Donations" /> 
+	<meta property="og:url" content="http://opendatabeta.herokuapp.com/viztest" /> 
+	<meta property="og:type" content="article" /> 
+	<meta property="og:description" content="Explore campaign donations to Cambridge city officials by people affiliated with developers receiving tax breaks and subsidies." /> 
+	<meta property="og:image" content="http://opendatabeta.herokuapp.com/viztest" /> 
+	<meta property="og:site_name" content="opendatabeta" />
+
+	<link rel="stylesheet" type="text/css" href="https://s3.us-east-2.amazonaws.com/opendatabeta/js/fancybox/jquery.fancybox.css"/>
+	<link rel="stylesheet" href="https://s3.us-east-2.amazonaws.com/opendatabeta/css/style.min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" media="screen and (max-height: 770px)" href="https://s3.us-east-2.amazonaws.com/opendatabeta/css/tablet.css" />
+	<link rel="icon" type="image/png" href="https://s3.us-east-2.amazonaws.com/opendatabeta/ODBfavicon.png" />
+	 
+	<!--[if IE]><script type="text/javascript" src="js/excanvas.js"></script><![endif]--> <!-- js/default.js -->
+	<script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<!-- <script src="https://s3.us-east-2.amazonaws.com/opendatabeta/js/jgestures.min.js" type="text/javascript" language="javascript"></script> -->
+	<!-- <script src="https://s3.us-east-2.amazonaws.com/opendatabeta/js/sigma/sigma.concat.min.js" type="text/javascript" language="javascript"></script> -->
+	<script src="js/sigma.js" type="text/javascript" language="javascript"></script>
+	<script src="js/sigma.parseJson.js" type="text/javascript" language="javascript"></script>
+	<script src="https://s3.us-east-2.amazonaws.com/opendatabeta/js/fancybox/jquery.fancybox.pack.js" type="text/javascript" language="javascript"></script>
+	<!-- <script src="main.min.js" type="text/javascript" language="javascript"></script> -->
+	<script src="js/main.js" type="text/javascript" language="javascript"></script>
+	<script type="text/javascript">if (window.location.hash == '#_=_')window.location.hash = '';</script>
+	
+	<script type="text/javascript">
+	    var dont_confirm_leave = 0; //set dont_confirm_leave to 1 when you want the user to be able to leave without confirmation
+	    var leave_message = 'You sure you want to leave?';
+	    function goodbye(e) 
+	    {	
+	        if(dont_confirm_leave!==1)
+	        {
+	            if(!e) e = window.event;
+	            //e.cancelBubble is supported by IE - this will kill the bubbling process.
+	            e.cancelBubble = true;
+	            e.returnValue = leave_message;
+	            //e.stopPropagation works in Firefox.
+	            if (e.stopPropagation) 
+	            {
+	                e.stopPropagation();
+	                e.preventDefault();
+	            }
+	            //return works for Chrome and Safari
+	            return leave_message;
+	        }
+	    }
+	    window.onunload=goodbye;   
+	function HashChangeHandler(){
+
+		var a = window.location.href.split("#")[1]
+		sigInst.refresh();
+	    if( location.hash != '' && location.hash !="#"){
+	     if(a.indexOf("rgb") != -1 ){
+		    sigInst.refresh();
+		    showCluster(a.replace('#',''));
+		    $('#zoom .z[rel="details"]').addClass('active');
+	     }else{
+		    sigInst.refresh();    
+	    	nodeActive(getNodeID(decodeURIComponent(a)));
+	     }
+	    }else{
+	     sigInst.refresh();
+		 nodeNormal();
+		 showFull();
+		 $('#zoom .z[rel="details"]').removeClass('active');
+		 $('#zoom .z[rel="details"]').addClass('inactive');
+	    }	
+
+	}
+	function init_safari(){
+		try{
+			typeof document.getElementsByClassName('sigma_edges_canvas')[0].getContext('2d');
+			HashChangeHandler();	
+		}catch(e){
+			setTimeout(init_safari, 10);
+		}
+	}
+	
+	$(document).ready(init_safari());
+	</script>
+	<style>
+		#attributepane .data {
+    		display: none !important;
+    		margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body onhashchange="HashChangeHandler();">
+	<nav>
+
+        <ul class="site-links">
+            <li class="developerhome"><a href="https://opendatabeta.herokuapps.com">OpenDataBeta</a></li>
+        </ul>
+
+		<ul class="social-links"> 
+		    <li class="twitter"><a onclick="_gaq.push(['_trackEvent', 'Social', 'Click Twitter In Navbar', 'Interactive: Explore the cozy financial ties between DC politicians and developers #DeveloperDeals ']);" target="_blank" alt="Share on Twitter" href="http://twitter.com/share?text=Interactive%3A%20Explore%20the%20cozy%20financial%20ties%20between%20DC%20politicians%20and%20developers%20%23DeveloperDeals&url=http%3A%2F%2Fwamu.fm%2F16EItTk" rel="external">Share This Page On Twitter</a></li> 
+		    <li class="facebook"><a onclick="_gaq.push(['_trackEvent', 'Social', 'Click Facebook In Navbar', 'Deals for Developers: Explore campaign donations to DC city officials by people affiliated with developers receiving tax breaks and subsidies.']);" target="_blank" alt="Share on Facebook" href="https://www.facebook.com/dialog/feed?app_id=506172879432490&link=http%3A%2F%2Fwamu.fm%2F16EItTk&name=Interactive%3A+Follow+the+Campaign Donations&picture=http%3A%2F%2Fwamu.org%2Fprojects%2Fdeveloperdeals%2Fimages%2Fnetwork%2Dpromo.png&description=Explore+campaign+donations+to+DC+city+officials+by+people+affiliated with+developers+receiving+tax+breaks+and+subsidies.&redirect_uri=http%3A%2F%2Fwamu.fm%2F16EItTk" rel="external">Like This Page On Facebook</a></li> 
+		</ul> 
+    </nav>
+	<div class="sigma-parent">
+		<div class="sigma-expand" id="sigma-canvas"></div>
+	</div>
+	<div id="zoom">
+  		<div class="z" rel="key"></div><div class="z" rel="details"></div><div class="z" rel="spacer"></div><div class="z" rel="full"></div><div class="z" rel="in"></div> <div class="z" rel="out"></div> 
+	</div>
+	<div id="copyright">
+		<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://wamu.org/projects/developerdeals/images/CC.png" /></a></div>
+	</div>
+
+<div id="attributepane">
+<div class="text">
+	<div title="Close" class="left-close returntext"><div class="c cf">&nbsp;</div></div>	
+<div class="headertext"></div>	
+<div class="head_container">
+<div class="image"></div><div class="name"></div><div class="details"></div>
+<div class="mainheader"><span class="head">Cambridge Deal$</span></div>
+</div><br style="clear:both;"/>
+  <div class="nodeattributes">
+    <div class="p"></div>
+    <div class="link">
+      <ul>
+      </ul>
+    </div>
+    <div class="data"></div>
+  </div>
+  <div id="mainpanel">
+<div id="description">Explore donations to Cambridge, MA officials and candidates from 40 developers that received various land-related concessions. For example, click on <a href="#Maher, David P.">David P. Maher</a> and see that he received more than 300 contributions worth more than $100,000. Click his largest donor, <a href="#ALEXANDRIA">Alexandria</a>, and see its contributions and who they went to.<br/><br/><a href="#" onclick="showKey()">View the full network.</a></br><br/><a href="https://opendatabeta.herokuapps.com/viztest.html">Return to the main article.</a></br></br>Not possible without the wonderful, cc-licensed work of <a href="http://wamu.org/developerdeals">WAMU</a>.</div>
+
+
+
+  <div class="col">
+		<div id="maintitle" ></div>
+    <div id="title" ></div>
+    <div id="titletext" ></div>
+    <div class="info cf" >
+      <dl>
+        <dt class="moreinformation"></dt>
+        <dd class="line"></dd>
+      </dl>
+    </div>
+<div id="legend" >
+	<div class="box" >
+		<!--h2>Legend:</h2-->
+		<dl>
+		<dt class="node"></dt>
+		<dd></dd>
+		<dt class="edge"></dt>
+		<dd></dd>
+		<dt class="colours"></dt>
+		<dd></dd>		
+		</dl>
+	</div>
+</div> 
+    <div class="b1">
+    <form>
+      <div id="search" class="cf">
+        <input type="text" name="search" value="Search by name" class="empty"/><div class="state"></div>
+        <div class="results"></div>
+      </div>
+      <hr/>
+      <div class="cf" id="attributeselect">
+      <table>
+      <tr>
+      <td>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="20px" height="20px"  viewBox="0 0 45 45">
+   <circle cx="25" cy="25" r="10"  fill="rgb(255,0,0)" />
+      
+</svg></td><td class="label"><a href="#">Official in office</a></td>
+      </tr><tr>
+      <td>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="20px" height="20px"  viewBox="0 0 45 45">
+   <circle cx="25" cy="25" r="10"  fill="rgb(253,149,149)" />
+      
+</svg></td><td class="label"><a href="#">Candidate/former official</a></td>
+      </tr><tr>
+      <td>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="20px" height="20px"  viewBox="0 0 45 45">
+   <circle cx="25" cy="25" r="10"  fill="rgb(137,147,163)" />
+      
+</svg></td><td class="label"><a href="#">Developer</a></td>
+      </tr>
+      <tr><td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="20px" height="20px"  viewBox="0 0 45 45">
+   <circle cx="25" cy="25" r="10" stroke="rgb(0,0,0)" stroke-width="2" stroke-dasharray="5,5" fill="rgba(255,255,255,0.0)" />
+</svg> </td><td class="label">
+ <span>Fewer overall contributions</span></td>
+      </tr>
+      <tr><td>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="20px" height="20px" viewBox="0 0 45 45">
+   <circle cx="25" cy="25" r="16" stroke="rgb(0,0,0)" stroke-width="2" stroke-dasharray="5,5" fill="rgba(255,255,255,0.0)" />
+</svg> </td><td class="label">More overall contributions</td>
+      </tr>
+      <tr><td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="20px" height="20px"  viewBox="0 0 45 45">
+   <line x1="8" y1="25" x2="42" y2="25" style="stroke:rgb(137,147,163);stroke-width:3;" fill="rgba(255,255,255,0.0)" />
+</svg> </td><td class="label">Fewer contributions to candidate</td>
+      </tr>
+      <tr><td>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="20px" height="20px" viewBox="0 0 45 45">
+   <line x1="8" y1="25" x2="42" y2="25" style="stroke:rgb(137,147,163);stroke-width:10;" fill="rgba(255,255,255,0.0)" />
+</svg> </td><td class="label">More contributions to candidate</td>
+      </tr>
+
+      </table>
+        <div class="select">Select Group</div>
+	<div class="list cf"></div>
+      </div>
+    </form>
+    </div>
+  </div>
+  <div id="information"></div>
+	<div class="cred">
+		<hr/>
+		<sub><b>Data and Reporting</b><br/>James Moffet, XXXXX, XXXXX</sub><br/>
+		<sub><b>Programming and Data Visualization</b><br/>James Moffet</sub><br/>
+		<br/>
+		<sub><i>The total contributions are based on 10 years of data from the Massachusetts Office of Campaign and Political Finance.</i></sub>
+	</div>
+</div>
+
+</div><!--END MAINPANEL-->
+</body>
+<script>
+	
+function touchHandler(event)
+{
+    var touches = event.changedTouches,
+        first = touches[0],
+        type = "";
+         switch(event.type)
+    {
+        case "touchstart": type = "mousedown"; break;
+        case "touchmove":  type="mousemove"; break;        
+        case "touchend":   type="mouseup"; break;
+        default: return;
+    }
+ 
+    var simulatedEvent = document.createEvent("MouseEvent");
+    simulatedEvent.initMouseEvent(type, true, true, window, 1, 
+                              first.screenX, first.screenY, 
+                              first.clientX, first.clientY, false, 
+                              false, false, false, 0/*left*/, null);
+    first.target.dispatchEvent(simulatedEvent);
+    event.preventDefault();
+}
+ 
+function init() 
+{
+    document.addEventListener("touchstart", touchHandler, {passive: true, capture: true});
+    document.addEventListener("touchmove", touchHandler, {passive: true, capture: true});
+    document.addEventListener("touchend", touchHandler, {passive: true, capture: true});
+    document.addEventListener("touchcancel", touchHandler, {passive: true, capture: true});    
+}
+init();
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!-- START SIGMA IMPORTS -->
+<script src="../js/sigma/sigma.js"></script>
+<script src="../js/sigma/plugins/sigma.parsers.json.js"></script>
+<!-- END SIGMA IMPORTS -->
+
+<div id="container">
+  <style>
+    #graph-container {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+    }
+  </style>
+  <div id="graph-container"></div>
+</div>
+<script>
+/**
+ * Here is just a basic example on how to properly display a graph
+ * exported from Gephi as a JSON file, with the JSON Exporter plugin from
+ * the Oxford Internet Institute:
+ *
+ *  > https://marketplace.gephi.org/plugin/json-exporter/
+ *
+ * The plugin sigma.parsers.json can load and parse the JSON graph file,
+ * and instantiate sigma when the graph is received.
+ *
+ * The object given as the second parameter is the base of the instance
+ * configuration object. The plugin will just add the "graph" key to it
+ * before the instanciation.
+ */
+sigma.parsers.json('data/d9.json', {
+  container: 'graph-container'
+});
+</script>
