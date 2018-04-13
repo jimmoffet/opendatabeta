@@ -1,7 +1,9 @@
 from flask import Flask, request, redirect, jsonify, render_template
 from flask_cors import CORS, cross_origin
+from twilio_creds import account_sid, auth_token
 from twilio.twiml.messaging_response import MessagingResponse
-from scrape import scrape, ping, people, pLayer, extendToken, sendSMS
+from scrape import scrape, ping, people, pLayer, extendToken
+#from coinscraperCurrent3 import getCurrentPrice
 import random
 import threading
 import datetime
@@ -15,9 +17,11 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 # Find these values at https://twilio.com/user/account
-account_sid = "AC3e1252b3f55741e9dfeb3fb4ef66d88e"
-auth_token = "2e89e4f761bee93067348899cc5e6493"
+# account_sid = 'XXXXXXXXXXX" # PUT YOUR TWILIO ACCOUNT_SID IN twilio_creds.py FILE
+# auth_token = 'XXXXXXXXXXX" # PUT YOUR TWILIO_AUTH TOKEN IN twilio_creds.py FILE
 client = Client(account_sid, auth_token)
+
+print(account_sid)
 
 textfriend = False
 friendnumber = '+17733541500'
@@ -52,6 +56,30 @@ def getLongToken(shorttoken):
 def serve_schedule():
 	schedule = scrape('http://cambridgema.iqm2.com/Citizens/Detail_LegalNotice.aspx?ID=1008')
 	return jsonify(schedule)
+
+@app.route("/scrape/<string:start_command>/")
+def scrape_current(start_command):
+	if start_command != '':
+		print('starting current')
+		output = getCurrentPrice(start_command)
+	return 'current process started'
+
+@app.route("/show")
+def show_current():
+	path = "/static"
+	tDict = {}
+	for filename in os.listdir(path):
+		if re.match("*prices.csv", filename):
+			with open(os.path.join(path, filename), 'r') as f:
+				cnt=0
+				tDict[filename] = []
+				for line in f:
+					tDict[filename].append(line)
+					cnt+=1
+					if cnt > 3:
+						f.close()
+						break
+	return jsonify(tDict)
 
 @app.route("/monkey", methods=['GET', 'POST'])
 def hello_monkey():
