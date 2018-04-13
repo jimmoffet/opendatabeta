@@ -3,7 +3,6 @@ from flask_cors import CORS, cross_origin
 from twilio_creds import account_sid, auth_token
 from twilio.twiml.messaging_response import MessagingResponse
 from scrape import scrape, ping, people, pLayer, extendToken
-#from coinscraperCurrent3 import getCurrentPrice
 import random
 import threading
 import datetime
