@@ -20,7 +20,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 # auth_token = 'XXXXXXXXXXX" # PUT YOUR TWILIO_AUTH TOKEN IN twilio_creds.py FILE
 client = Client(account_sid, auth_token)
 
-print(account_sid)
+# print(account_sid)
 
 textfriend = False
 friendnumber = '+17733541500'
