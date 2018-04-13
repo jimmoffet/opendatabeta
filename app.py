@@ -1,6 +1,5 @@
 from flask import Flask, request, redirect, jsonify, render_template
 from flask_cors import CORS, cross_origin
-from twilio_creds import account_sid, auth_token
 from twilio.twiml.messaging_response import MessagingResponse
 from scrape import scrape, ping, people, pLayer, extendToken
 import random
@@ -9,6 +8,10 @@ import datetime
 import re
 from twilio.rest import Client
 from string import punctuation
+import os
+
+account_sid = os.environ.get('TWILIO_SID', None)
+auth_token = os.environ.get('TWILIO_TOKEN', None)
 
 
 app = Flask(__name__)
