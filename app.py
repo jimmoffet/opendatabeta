@@ -1,18 +1,20 @@
 from flask import Flask, request, redirect, jsonify, render_template
 from flask_cors import CORS, cross_origin
 from twilio.twiml.messaging_response import MessagingResponse
-from scrape import scrape, ping, people, pLayer, extendToken
+from scrape import scrape, ping, people, pLayer, extendToken, linkCheck
 import random
 import threading
 import datetime
 import re
+import time
 from twilio.rest import Client
 from string import punctuation
 import os
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 
 account_sid = os.environ.get('TWILIO_SID', None)
 auth_token = os.environ.get('TWILIO_TOKEN', None)
-
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -22,6 +24,10 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 # account_sid = 'XXXXXXXXXXX" # PUT YOUR TWILIO ACCOUNT_SID IN twilio_creds.py FILE
 # auth_token = 'XXXXXXXXXXX" # PUT YOUR TWILIO_AUTH TOKEN IN twilio_creds.py FILE
 client = Client(account_sid, auth_token)
+
+scope = ['https://spreadsheets.google.com/feeds']
+creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
+gClient = gspread.authorize(creds)
 
 # print(account_sid)
 
@@ -33,26 +39,57 @@ friendmessage = 'Default friend message'
 def hello():
 	out = ''
 	try:
-		page_name = 'newnetwork'
-		return render_template('%s.html' % page_name)
+		ref_name = ''
+		return render_template('index.html', ref_name=ref_name)
 	except:
 		out = ' FIX MEEEEEEEEEEEEEEEEEEEEEE!!!!.'
 		return out
 
-@app.route('/<string:page_name>/')
+@app.route('/<string:ref_name>/')
+def render_static_referral(ref_name):
+    return render_template('index.html', ref_name=ref_name)
+
+@app.route('/slingshot/<string:page_name>/')
 def render_static(page_name):
     return render_template('%s.html' % page_name)
 
-@app.route("/commit/<string:shorttoken>", methods=["POST", "GET"])
-def getLongToken(shorttoken):
+@app.route("/ref/<string:refcode>", methods=["POST", "GET"])
+def renderLogin(refcode):
+	refname=''
+	random.seed( str(time.time()).replace('.','') )
+	if refcode:
+		refname = refcode
+	else:
+		refcode = random.randint(100000000, 999999999)
+	print(refcode)
+	return render_template('index.html', refcode=refcode, refname=refname)
 
-    resp = extendToken(shorttoken)
-    longtoken = resp['access_token']
-    print(longtoken)
-    
-    ### save longtoken to db along with uid and whatever else
+@app.route("/submit", methods=["POST"])
+def submit():
+	if request.method == "POST":
+		
+		resp = request.get_json()
+		name = resp['name']
+		email = resp['email']
+		ref = resp['ref']
+		print('name is ', name)
+		print('ref is ', ref)
 
-    return jsonify(resp)
+		outname, outemail, outlink, outref = people(gClient, name, email, ref)
+
+	return jsonify({"type":"success", "data":outlink})
+
+@app.route("/softSubmit", methods=["POST"])
+def softSubmit():
+	if request.method == "POST":
+		
+		resp = request.get_json()
+		name = resp['name']
+		print('name is ', name)
+
+		outname, outemail, outlink, outteam = linkCheck(gClient, name)
+
+	return jsonify({"type":"success", "data":outlink})
 
 @app.route("/api")
 def serve_schedule():
