@@ -35,6 +35,7 @@ Flask-Cors==3.0.7
 future==0.16.0
 fuzzywuzzy==0.15.0
 gspread==0.6.2
+gunicorn==19.9.0
 httplib2==0.10.3
 idna==2.5
 isodate==0.6.0
