@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" type="image/x-icon">
+
+    <!-- TITLE -->
+    <title>Slingshot Contest - Live!</title>
+
+    <!-- DESCRIPTION -->
+    <meta name="author" content=" " />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- GOOGLE FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,700,600,500,300,200,100,800,900' rel='stylesheet' type='text/css'>
+
+    <!-- STYLESHEETS -->
+    <link href="{{ url_for('static', filename='assets/css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='assets/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='assets/css/flexslider.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='assets/css/animate.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='assets/css/schedule.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='assets/css/gridgallery.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='assets/css/venobox.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='assets/css/queries.css') }}" rel="stylesheet" type="text/css" />
+
+    <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js') }}"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js') }}"></script>
+		<![endif]-->
+    
+
+    <style>
+        .main {
+          height: 330px;
+          overflow: hidden;
+          position: relative;
+          margin: 0 auto;
+          border-radius: 5px;
+          color: white;
+          box-sizing: border-box;
+        }
+
+        .pagenations {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 auto;
+          max-width: 400px;
+          height: 30px;
+          background: #fff;
+        /*   border-radius: 5px 5px 0 0; */
+        }
+
+        .pagenation {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #f4ff81;
+          margin: 0 3px;
+        }
+
+        .pagenation.is-active {
+          background: #827717;
+        }
+
+        .blocks h1 {
+          color: #999;
+        /*   display: flex;
+          flex-direction: column;
+          align-items: center;
+          position: relative; */
+        }
+
+        .block {
+          width: 100%;
+          height: 300px;
+          flex-direction: column;
+          position: absolute;
+          transform: translateX(0);
+          transition: transform 900ms;
+        /*   margin: 15px 0; */
+          display: flex;
+        /*   display: none; */
+          opacity: 0;
+          transition: opacity 1200ms;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .block form {
+          color: #424242;
+        }
+
+        .block input {
+          height: 30px;
+          width: 200px;
+          margin: 5px 0 10px 0;
+          border-radius: 5px;
+          border-style: none;
+        }
+
+        .block .button {
+            display: block;
+            width: 70px;
+            text-align: center;
+            background: #00e676;
+            border: none;
+            color: #fff;
+            padding: 4px;
+            border-radius: 5px;
+            margin-top: 4px;
+            cursor: pointer;
+        }
+
+        .block-01 {
+          background: #f3f5f8;
+          z-index: 3;
+        /*   transform: translateX(500px); */
+        }
+
+        .block-02 {
+          background: #f3f5f8;
+          z-index: 2;
+        /*   transform: translateX(500px); */
+        }
+
+        .block-03 {
+          background: #f3f5f8;
+          z-index: 1;
+        /*   transform: translateX(500px); */
+        }
+
+        .block-04 {
+          background: #f3f5f8;
+          z-index: 0;
+        /*   transform: translateX(500px); */
+        }
+
+        .block .button {
+            display: block;
+            width: 70px;
+            text-align: center;
+            background: #00e676;
+            border: none;
+            color: #fff;
+            padding: 4px;
+            border-radius: 5px;
+            margin-top: 4px;
+            cursor: pointer;
+            transform: translateX(0);
+        }
+
+        .block.is-active {
+            display: flex;
+            z-index: 999;
+            opacity: 1;
+            transition: opacity 0ms;
+            animation: slide 600ms forwards;
+            transform: translateX(0);
+        }
+
+        .block.not-active {
+            display: flex;
+            z-index: 999;
+            opacity: 1;
+            transition: opacity 0ms;
+            animation: slideout 600ms forwards;
+            transform: translateX(0);
+        }
+
+        @keyframes slide {
+          0% {
+            transform: translateX(600px);
+          }
+          
+          100% {
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes slideout {
+          0% {
+            transform: translateX(0);
+          }
+          
+          100% {
+            transform: translateX(-700px);
+          }
+        }
+
+        /* .animate-out { 
+          transform: translateX(700px);
+        } */
+    </style>
+
+</head>
+
+<body id="top" data-spy="scroll" data-target=".header" data-offset="80">
+
+    <!--PRELOADER-->
+    <div class="preloader">
+        <div class="status"></div>
+    </div>
+    <!--/PRELOADER-->
+
+    <!--HEADER-->
+    <div class="header header-hide">
+        <div class="container">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" data-scroll href="#sec_1"><img src="{{ url_for('static', filename='assets/img/fbrklogo.png') }}" alt="Slingshot" /></a>
+                </div>
+                <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a data-scroll href="#intro">About</a></li>
+                        <li><a data-scroll href="#responsive">Schedule</a></li>
+                        <li><a data-scroll href="#team">Speakers</a></li>
+                        <li><a data-scroll href="#portfolio">Winnings</a></li>
+                        <li><a data-scroll href="#sponsers">Sponsors</a></li>
+                        <li><a data-scroll href="#contact">Contact</a></li>
+                        <li class="hidden"><a href="#sec_1">Home</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!--/HEADER-->
+
+    <!--HOME-->
+    <section id="sec_1" class="autoheight">
+        <div class="home-bg"></div>
+        <div class="col-lg-12 landing-text-pos align-center">
+            <h1 class="wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="1s">Primary Listing Competition - Spring 2019</h1>
+            <hr id="title_hr" />
+            <p class="wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="1s">May 1 - 20, 2019 (Application submission opens May 1 -10)</p>
+            <a class="learn-more-btn btn-effect wow animated fadeIn" target="_blank" href="{{ 'https://slingshotcontest.typeform.com/to/HHSoVE/?ref=%s'%ref_name|urlencode }}">Apply Here</a>
+        </div>
+    </section>
+    <!--/HOME-->
+
+    <!--ABOUT-->
+    <section class="intro text-center section-padding" id="intro">
+        <div class="container wow animated fadeInLeft animated" data-wow-duration="1s" data-wow-delay="0.5s">
+            <div class="row">
+                <div class="col-lg-8 align-center about">
+                    <h1 class="arrow">About the Contest</h1>
+                    <hr>
+                    <p>Slingshot and Official Partner BXA are launching a sponsored primary exchange listing competition to identify the best projects in the US. Competition winners will be offered the opportunity to list on partner exchanges in Asia during Summer 2019.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ABOUT-->
+
+     <!--REF-->
+    <section class="intro text-center section-padding" id="intro">
+        <div class="container wow animated fadeInLeft animated" data-wow-duration="1s" data-wow-delay="0.5s">
+            <div class="row">
+                <div class="col-lg-8 align-center about">
+                    <h1 class="arrow">Win $5,000 for Referring a Winning Team</h1>
+                    <hr>
+                    <p>Win $5,000 for connecting us to a winning team. Share your link with others and get $2,500 if they submit a winner.</p>
+                </div>
+            </div>
+            <!-- <div class="row">
+                <form id="refForm">
+                    Name: <input type="text" name="name" id="name" placeholder="Mickey Mouse"><br>
+                    Email: <input type="text" name="email" id="email" placeholder="email@email.com"><br>
+                    Team Contact (optional): <input type="text" name="team" id="team" placeholder="awesometeam@widgets.com"><br>
+                </form>
+                <div class="input-group form-group-no-border input-lg" id="submit">
+                  <a class="btn btn-primary btn-round" onclick="submit()">
+                    GIVE ME MY LINK!
+                  </a>
+                </div>
+            </div> -->
+
+            <div class="row">
+                <div class="main">
+                    <!-- <div class="pagenations">
+                      <div class="pagenation page-01 is-active"></div>
+                      <div class="pagenation page-02"></div>
+                      <div class="pagenation page-03"></div>
+                      <div class="pagenation page-04"></div>
+                    </div> -->
+                    <div class="blocks">
+                      <div class="block block-01 is-active">
+                        <form onsubmit="return false">
+                          <input type="text" name="name" class= "nameInput" id="name" placeholder="Mickey Mouse">
+                        </form>
+                        <div class="button page-02 softSubmit" onclick="softSubmit()">Next</div>
+                      </div>
+                      <div class="block block-02">
+                        <form onsubmit="return false">
+                          How do we connect when you've won?<br>
+                          <input type="text" name="email" id="email" class= "emailInput" placeholder="Email or Phone">
+                        </form>
+                        <div class="button page-03 hardSubmit" onclick="submit()">Next</div>
+                      </div>
+
+<!--                       <div class="block block-03">
+                        <form onsubmit="return false">
+                          Do you have team ready to go?<br>
+                          <input type="text" name="email" id="team" class= "teamInput" placeholder="Team contact"> 
+                        </form>
+                        <div class="button page-04" onclick="submit()">Next</div>
+                      </div> -->
+
+                      <div class="block block-03" id="displayCode">
+                        <h1 class="displayLink" id="displayLink"></h1>
+                      </div>
+
+                      
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!--/REF-->
+
+
+    <!--FEATURES-->
+    <section class="features text-center" id="features">
+        <div class="row">
+
+            <div class="container features-md">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="features-wrapper">
+                            <div class="col-md-4 wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+                                <div class="icon">
+                                    3+
+                                </div>
+                                <h2>Cities</h2>
+                            </div>
+
+                            <div class="col-md-4 wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.7s">
+                                <div class="icon">
+                                    5
+                                </div>
+                                <h2>Events</h2>
+                            </div>
+
+                            <div class="col-md-4 wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.9s">
+                                <div class="icon">
+                                    20
+                                </div>
+                                <h2>Days</h2>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!--row ends here-->
+    </section>
+    <!--/FEATURES-->
+
+    <!--SCHEDULE-->
+    <section class="text-center section-padding" id="responsive">
+        <div class="container wow animated fadeInLeft bottom-spacing">
+            <div class="row">
+                <div class="col-md-8 align-center wow animated fadeInLeft">
+                    <h1 class="arrow">Schedule</h1>
+                    <hr>
+                    <p>Lorem ipsum dolor sit amet, alia honestatis an qui, ne soluta nemore eripuit sed. Falli exerci aperiam ut his, prompta feugiat usu minimum delicata.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-schedule container wow animated fadeInDown animated" data-wow-duration="1s" data-wow-delay="1s">
+            <div id="tabs-ui" class="tabs">
+                <nav>
+                    <ul>
+                        <li><a href="#section-1"><span>Day1</span></a></li>
+                        <li><a href="#section-2"><span>Day2</span></a></li>
+                        <li><a href="#section-3"><span>Day3</span></a></li>
+                        <li><a href="#section-4"><span>Day4</span></a></li>
+                        <li><a href="#section-5"><span>Day5</span></a></li>
+                    </ul>
+                </nav>
+                <div class="content">
+                    <section id="section-1">
+                        <div class="container">
+                            <div class="accordion">
+                                <div class="day">September 15, 2014</div>
+                                <div class="item clearfix">
+                                    <div class="heading clearfix">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">9:30am - 11:30am</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">
+                                            Welcome speech and Overview<br />
+                                            <span class="name">Andrew Yang - </span>
+                                            <span class="speaker-designaition">CEO, Microsoft</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item clearfix">
+                                    <div class="heading">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">11:30am - 1:00pm</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">The Standardistas are lecturers in interactive design<br /><span class="name">Andrew Yang - </span><span class="speaker-designaition">CEO, Microsoft</span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item clearfix">
+                                    <div class="heading">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">1:00pm - 2:00pm</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">Catered Lunch<br /><span class="name">Sponsered </span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item clearfix">
+                                    <div class="heading">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">3:00pm - 4:30pm</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">Proin gravida nibh vel velit auctor aliquet<br /><span class="name">Mary Doe - </span><span class="speaker-designaition">Lead Designer, Microsoft</span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--CONTAINER ENDS-->
+                    </section>
+                    <section id="section-2">
+                        <div class="container">
+                            <div class="accordion">
+                                <div class="day">September 16, 2014</div>
+                                <div class="item clearfix">
+                                    <div class="heading clearfix">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">9:30am - 11:30am</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">Overview - Nisi elit consequat<br /><span class="name">Andrew Yang - </span><span class="speaker-designaition">CEO, Microsoft</span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item clearfix">
+                                    <div class="heading">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">11:30am - 1:00pm</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">Aenean sollicitudin quis bibendum auctor<br /><span class="name">Andrew Yang - </span><span class="speaker-designaition">CEO, Microsoft</span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item clearfix">
+                                    <div class="heading">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">1:00pm - 2:00pm</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">Catered Lunch<br /><span class="name">Sponsered </span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item clearfix">
+                                    <div class="heading">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">3:00pm - 4:30pm</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">Sagittis sem nibh id elit<br /><span class="name">Mary Doe - </span><span class="speaker-designaition">Lead Designer, Microsoft</span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="section-3">
+                        <div class="container">
+                            <div class="accordion">
+                                <div class="day">September 17, 2014</div>
+                                <div class="item clearfix">
+                                    <div class="heading clearfix">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">9:30am - 11:30am</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">Welcome speech and Overview<br /><span class="name">Andrew Yang - </span><span class="speaker-designaition">CEO, Microsoft</span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item clearfix">
+                                    <div class="heading">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">11:30am - 1:00pm</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">The Standardistas are lecturers in interactive design<br /><span class="name">Andrew Yang - </span><span class="speaker-designaition">CEO, Microsoft</span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item clearfix">
+                                    <div class="heading">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">1:00pm - 2:00pm</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">Catered Lunch<br /><span class="name">Sponsered </span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item clearfix">
+                                    <div class="heading">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">3:00pm - 4:30pm</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">Proin gravida nibh vel velit auctor aliquet<br /><span class="name">Mary Doe - </span><span class="speaker-designaition">Lead Designer, Microsoft</span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="section-4">
+                        <div class="container">
+                            <div class="accordion">
+                                <div class="day">September 18, 2014</div>
+                                <div class="item clearfix">
+                                    <div class="heading clearfix">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">9:30am - 11:30am</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">Overview - Nisi elit consequat<br /><span class="name">Andrew Yang - </span><span class="speaker-designaition">CEO, Microsoft</span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item clearfix">
+                                    <div class="heading">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">11:30am - 1:00pm</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">Aenean sollicitudin quis bibendum auctor<br /><span class="name">Andrew Yang - </span><span class="speaker-designaition">CEO, Microsoft</span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item clearfix">
+                                    <div class="heading">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">1:00pm - 2:00pm</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">Catered Lunch<br /><span class="name">Sponsered </span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item clearfix">
+                                    <div class="heading">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">3:00pm - 4:30pm</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">Sagittis sem nibh id elit<br /><span class="name">Mary Doe - </span><span class="speaker-designaition">Lead Designer, Microsoft</span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="section-5">
+                        <div class="container">
+                            <div class="accordion">
+                                <div class="day">September 19, 2014</div>
+                                <div class="item clearfix">
+                                    <div class="heading clearfix">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">9:30am - 11:30am</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">Welcome speech and Overview<br /><span class="name">Andrew Yang - </span><span class="speaker-designaition">CEO, Microsoft</span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item clearfix">
+                                    <div class="heading">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">11:30am - 1:00pm</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">The Standardistas are lecturers in interactive design<br /><span class="name">Andrew Yang - </span><span class="speaker-designaition">CEO, Microsoft</span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item clearfix">
+                                    <div class="heading">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">1:00pm - 2:00pm</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">Catered Lunch<br /><span class="name">Sponsered </span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item clearfix">
+                                    <div class="heading">
+                                        <div class="time col-md-3 col-sm-12 col-xs-12">3:00pm - 4:30pm</div>
+                                        <div class="e-title col-md-9 col-sm-12 col-xs-12">Proin gravida nibh vel velit auctor aliquet<br /><span class="name">Mary Doe - </span><span class="speaker-designaition">Lead Designer, Microsoft</span></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="content venue col-md-3 col-sm-12 col-xs-12">
+                                            Venue: Auditorium 1
+                                        </div>
+                                        <div class="content details col-md-9 col-sm-12 col-xs-12">
+                                            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. The Standardistas are lecturers in interactive design.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div><!-- /content -->
+            </div><!-- /tabs -->
+        </div>
+    </section>
+
+
+    <!-- Event social links and download-->
+    <section class="event-download-social-link section-padding">
+        <div class="col-lg-6 col-md-12 align-center event-download-padding">
+            <a class="d-sch text-right" href="#" target="_blank"><i class="fa fa-download"></i>download schedule</a>
+            <a class="fb " href="#" target="_blank"><i class="fa fa-facebook"></i>connect via facebook</a>
+        </div>
+    </section>
+    <!--/SCHEDULE-->
+
+    <!--SPEAKERS-->
+    <section class="team text-center section-padding" id="team">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 wow animated fadeInUp align-center" data-wow-duration="1s" data-wow-delay="1s">
+                    <h1 class="arrow">Speakers</h1>
+                    <hr>
+                    <p>Lorem ipsum dolor sit amet, alia honestatis an qui, ne soluta nemore eripuit sed. Falli exerci aperiam ut his, prompta feugiat usu minimum delicata.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="speakers-wrap">
+                    <div id="portfolioSlider">
+                        <ul class="slides">
+                            <li>
+                                <div class="col-md-4 col-sm-4 wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+                                    <div class="overlay-effect effects clearfix">
+                                        <div class="img">
+                                            <img src="{{ url_for('static', filename='assets/img/team/nadeem.jpeg') }}" alt="Portfolio Item">
+                                            <div class="overlay">
+                                                <button class="md-trigger expand" data-modal="modal-1"><i class="fa fa-search"></i><br>View More</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h2>Nadeem Mazen</h2>
+                                    <p>Nadeem is an award-winning serial entrepreneur and MIT graduate, with over a decade of experience in viral marketing and interactive software.</p>
+                                </div>
+
+                                <div class="col-md-4 col-sm-4 wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.7s">
+                                    <div class="overlay-effect effects clearfix">
+                                        <div class="img">
+                                            <img src="{{ url_for('static', filename='assets/img/team/team2.jpg') }}" alt="Portfolio Item">
+                                            <div class="overlay">
+                                                <button class="md-trigger expand" data-modal="modal-2"><i class="fa fa-search"></i><br>View More</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h2>Mary Doe</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet.</p>
+                                </div>
+
+                                <div class="col-md-4 col-sm-4 wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.9s">
+                                    <div class="overlay-effect effects clearfix">
+                                        <div class="img">
+                                            <img src="{{ url_for('static', filename='assets/img/team/team3.jpg') }}" alt="Portfolio Item">
+                                            <div class="overlay">
+                                                <button class="md-trigger expand" data-modal="modal-3"><i class="fa fa-search"></i><br>View More</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h2>John Thomson</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet.</p>
+                                </div>
+                            </li>
+                            <!-- <li> Second Set of Speakers -->
+                            <li>
+                                <div class="col-md-4 col-sm-4 wow animated fadeInUp">
+                                    <div class="overlay-effect effects clearfix">
+                                        <div class="img">
+                                            <img src="{{ url_for('static', filename='assets/img/team/team1.jpg') }}" alt="Portfolio Item">
+                                            <div class="overlay">
+                                                <button class="md-trigger expand" data-modal="modal-4"><i class="fa fa-search"></i><br>View More</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h2>Mark Anderson</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet.</p>
+                                </div>
+                                <div class="col-md-4 col-sm-4 wow animated fadeInUp">
+                                    <div class="overlay-effect effects clearfix">
+                                        <div class="img">
+                                            <img src="{{ url_for('static', filename='assets/img/team/team2.jpg') }}" alt="Portfolio Item">
+                                            <div class="overlay">
+                                                <button class="md-trigger expand" data-modal="modal-5"><i class="fa fa-search"></i><br>View More</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h2>Mary Doe</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet.</p>
+                                </div>
+                                <div class="col-md-4 col-sm-4 wow animated fadeInUp">
+                                    <div class="overlay-effect effects clearfix">
+                                        <div class="img">
+                                            <img src="{{ url_for('static', filename='assets/img/team/team3.jpg') }}" alt="Portfolio Item">
+                                            <div class="overlay">
+                                                <button class="md-trigger expand" data-modal="modal-6"><i class="fa fa-search"></i><br>View More</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h2>John Thomson</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--Row Ends Here-->
+        </div>
+        <!-- Example Speaker -->
+        <div class="md-modal md-effect-9" id="modal-1">
+            <div class="md-content">
+                <div class="folio">
+                    <div class="avatar1"></div>
+                    <div class="sp-name"><strong>Mark Anderson</strong><br />Director, ABC</div>
+                    <div class="sp-dsc">
+                        This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor.
+                        <blockquote>
+                            <p>Here is a long quotation here is a long quotation proin gravida nibh vel velit auctor aliquet aenean sollicitudin.</p>
+                        </blockquote>
+                        This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+                    </div>
+                    <div class="sp-social">
+                        <ul>
+                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
+                        </ul>
+                    </div>
+                    <button class="md-close"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="md-overlay"></div>
+        <!-- /Example Speaker -->
+        <!-- Example Speaker -->
+        <div class="md-modal md-effect-9" id="modal-2">
+            <div class="md-content">
+                <div class="folio">
+                    <div class="avatar2"></div>
+                    <div class="sp-name"><strong>Mark Anderson</strong><br />Director, ABC</div>
+                    <div class="sp-dsc">
+                        This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor.
+                        <blockquote>
+                            <p>Here is a long quotation here is a long quotation proin gravida nibh vel velit auctor aliquet aenean sollicitudin.</p>
+                        </blockquote>
+                        This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+                    </div>
+                    <div class="sp-social">
+                        <ul>
+                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
+                        </ul>
+                    </div>
+                    <button class="md-close"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="md-overlay"></div>
+        <!-- /Example Speaker -->
+        <!-- Example Speaker -->
+        <div class="md-modal md-effect-9" id="modal-3">
+            <div class="md-content">
+                <div class="folio">
+                    <div class="avatar3"></div>
+                    <div class="sp-name"><strong>Mark Anderson</strong><br />Director, ABC</div>
+                    <div class="sp-dsc">
+                        This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor.
+                        <blockquote>
+                            <p>Here is a long quotation here is a long quotation proin gravida nibh vel velit auctor aliquet aenean sollicitudin.</p>
+                        </blockquote>
+                        This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+                    </div>
+                    <div class="sp-social">
+                        <ul>
+                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
+                        </ul>
+                    </div>
+                    <button class="md-close"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="md-overlay"></div>
+        <!-- /Example Speaker -->
+        <!-- Example Speaker -->
+        <div class="md-modal md-effect-9" id="modal-4">
+            <div class="md-content">
+                <div class="folio">
+                    <div class="avatar4"></div>
+                    <div class="sp-name"><strong>Mark Anderson</strong><br />Director, ABC</div>
+                    <div class="sp-dsc">
+                        This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor.
+                        <blockquote>
+                            <p>Here is a long quotation here is a long quotation proin gravida nibh vel velit auctor aliquet aenean sollicitudin.</p>
+                        </blockquote>
+                        This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+                    </div>
+                    <div class="sp-social">
+                        <ul>
+                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
+                        </ul>
+                    </div>
+                    <button class="md-close"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="md-overlay"></div>
+        <!-- /Example Speaker -->
+        <!-- Example Speaker -->
+        <div class="md-modal md-effect-9" id="modal-5">
+            <div class="md-content">
+                <div class="folio">
+                    <div class="avatar5"></div>
+                    <div class="sp-name"><strong>Mark Anderson</strong><br />Director, ABC</div>
+                    <div class="sp-dsc">
+                        This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor.
+                        <blockquote>
+                            <p>Here is a long quotation here is a long quotation proin gravida nibh vel velit auctor aliquet aenean sollicitudin.</p>
+                        </blockquote>
+                        This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+                    </div>
+                    <div class="sp-social">
+                        <ul>
+                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
+                        </ul>
+                    </div>
+                    <button class="md-close"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="md-overlay"></div>
+        <!-- /Example Speaker -->
+        <!-- Example Speaker -->
+        <div class="md-modal md-effect-9" id="modal-6">
+            <div class="md-content">
+                <div class="folio">
+                    <div class="avatar6"></div>
+                    <div class="sp-name"><strong>Mark Anderson</strong><br />Director, ABC</div>
+                    <div class="sp-dsc">
+                        This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor.
+                        <blockquote>
+                            <p>Here is a long quotation here is a long quotation proin gravida nibh vel velit auctor aliquet aenean sollicitudin.</p>
+                        </blockquote>
+                        This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+                    </div>
+                    <div class="sp-social">
+                        <ul>
+                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
+                        </ul>
+                    </div>
+                    <button class="md-close"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="md-overlay"></div>
+        <!-- /Example Speaker -->
+    </section>
+    <!--/SPEAKER-->
+
+    <!--PRICING-->
+    <section id="portfolio" class="portfolio text-center section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="arrow">Winnings and Resources</h1>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="pricing-wrap">
+                    <ul class="slides">
+                        <li>
+                            <div class="col-md-4 col-sm-12 col-xs-12 wow animated fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s">
+                                <ul class="planContainer">
+                                    <li class="title">
+                                        <h2>Sponsored Roadshow</h2>
+                                    </li>
+                                    <li>
+                                        <ul class="options">
+                                            <li>A sponsored Asia roadshow around the world to market and present their projects to investors at top events. (Dates to TBD)</li>
+                                            <li>Pitch to qualified investors, VCs and Ferryman investment directors</li>
+                                            <li>Speaking and media opportunities to engage in discussions about the future of Crypto/Blockchain </li>
+                                            <li>Get featured on the Ferryman and exchange front pages </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-4 col-sm-12 col-xs-12 wow animated fadeInRight" data-wow-duration="1s" data-wow-delay="0.7s">
+                                <ul class="planContainer">
+                                    <li class="title">
+                                        <h2 class="bestPlanTitle">Primary Listing Support</h2>
+                                    </li>
+                                    <li>
+                                        <ul class="options">
+                                            <li>Marketing/Public Relations/ 3rd Party Diligence (Media, magazines, social, etc…)</li>
+                                            <li>PR and Marketing support from Ferryman/Slingshot including white paper and pitch deck review and website re-design</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-md-4 col-sm-12 col-xs-12 wow animated fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                                <ul class="planContainer">
+                                    <li class="title">
+                                        <h2>Discounted guidance</h2>
+                                    </li>
+                                    <li>
+                                        <ul class="options">
+                                            <li>Discounted legal and accounting guidance, services, and preparation for primary listing from the best in the business at Fenwick and West LLP, and affiliated partners</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/PRICING-->
+
+    <!--REGISTER FORM-->
+    <section id="swag" class="swag text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 align-center">
+                    <form id="nl-form" class="nl-form ">
+                        Ready to list your project? Apply now!
+                        <div class="nl-submit-wrap">
+                            <button class="nl-submit btn-effect" type="submit" id="submit_btn" target="_blank" href="https://slingshotcontest.typeform.com/to/HHSoVE">Apply</button>
+                        </div>
+                        <div class="nl-overlay"></div>
+                    </form>
+                    <div class="md-modal md-effect-9" id="modal-10">
+                        <div class="md-content padding-none">
+                            <div class="folio">
+
+                                <div class="sp-name disclaimer"><strong>Terms and Conditions</strong></div>
+                                <div class="sp-dsc disclaim-border">
+                                    <ul>
+                                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua.</li>
+                                        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+                                        <li>Excepteur sint occaecat cupidatat non proident.</li>
+                                    </ul>
+                                </div>
+
+                                <button class="md-close"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 tc">Please read the<button class="md-trigger" data-modal="modal-10">Terms & Conditions</button>carefully.</div>
+                    <!-- the overlay element -->
+                    <div class="md-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /REGISTER FORM -->
+
+    <!--SPONSORS-->
+    <div id="sponsers" class="ignite-cta text-center section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 align-center wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+                    <h1 class="arrow">Sponsors and Official Partners</h1>
+                    <hr>
+                    <p>We are pleased to have support from the best in the industry, including top-line legal, marketing/PR, financial advisory, and exchange listing services.</p>
+                </div>
+                <!-- Jssor Slider Begin -->
+                <div id="slider1_container" style=" ">
+                    <div class="inner_carousal" data-u="slides" style="">
+                        <div><img alt="sp1" src="{{ url_for('static', filename='assets/img/sponsor/sp1.png') }}" /></div>
+                        <div><img alt="sp2" src="{{ url_for('static', filename='assets/img/sponsor/sp2.png') }}" /></div>
+                        <div><img alt="sp3" src="{{ url_for('static', filename='assets/img/sponsor/sp3.png') }}" /></div>
+                        <div><img alt="sp4" src="{{ url_for('static', filename='assets/img/sponsor/sp4.png') }}" /></div>
+                        <div><img alt="sp5" src="{{ url_for('static', filename='assets/img/sponsor/sp5.png') }}" /></div>
+                        <div><img alt="sp6" src="{{ url_for('static', filename='assets/img/sponsor/sp6.png') }}" /></div>
+                        <div><img alt="sp7" src="{{ url_for('static', filename='assets/img/sponsor/sp7.png') }}" /></div>
+                    </div>
+                </div>
+                <!-- Jssor Slider End -->
+            </div>
+        </div>
+    </div>
+    <!-- /SPONSORS -->
+
+    <!--FOOTER-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 align-center">
+                    <ul class="legals">
+                        <li><button class="md-trigger " data-modal="modal-11">Disclaimer</button></li>
+                        <li><a href="http://multia.in/">2019 - Slingshot. All Rights Reserved.</a></li>
+                    </ul>
+                </div>
+                <div class="md-modal md-effect-9" id="modal-11">
+                    <div class="md-content padding-none">
+                        <div class="folio">
+                            <div class="sp-name disclaimer"><strong>Disclaimer</strong></div>
+                            <div class="sp-dsc disclaim-border">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                <br /><br />
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+                            <button class="md-close"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="md-overlay"></div>
+            </div>
+        </div>
+    </footer>
+
+    </div>
+    <!-- /FOOTER -->
+    <!--SCRIPTS-->
+
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/jquery-1.11.0.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/jquery-ui-1.10.4.min.js') }}"></script>
+    
+
+    <script>
+
+        jQuery('.pagenation').on('click', function() {
+            jQuery('.pagenation').removeClass('is-active');
+            jQuery(this).addClass('is-active');
+        })
+
+        jQuery('.page-01').on('click', function() {
+            jQuery('.block').removeClass('is-active');
+            jQuery('.block-01').addClass('is-active');
+            // jQuery('.block-01').addClass('animate-out');
+            jQuery('.pagenation').removeClass('is-active');
+            jQuery('.page-01').addClass('is-active');
+        })
+
+        jQuery('.page-02').on('click', function() {
+            jQuery('.block').removeClass('is-active');
+            jQuery('.block-01').addClass('not-active');
+            jQuery('.block-02').addClass('is-active');
+            // jQuery('.block-03').addClass('animate-out');
+             jQuery('.pagenation').removeClass('is-active');
+            jQuery('.page-02').addClass('is-active');
+            setTimeout(function() {
+                    jQuery( '.emailInput' ).focus();
+                }, 800);
+        })
+
+        jQuery('.page-03').on('click', function() {
+            jQuery('.block').removeClass('is-active');
+            jQuery('.block-02').addClass('not-active');
+            jQuery('.block-03').addClass('is-active');
+            // jQuery('.block-03').addClass('animate-out');
+             jQuery('.pagenation').removeClass('is-active');
+            jQuery('.page-03').addClass('is-active');
+        })
+
+        jQuery('.page-04').on('click', function() {
+            jQuery('.block').removeClass('is-active');
+            jQuery('.block-03').addClass('not-active');
+            jQuery('.block-04').addClass('is-active');
+            // jQuery('.block-04').addClass('animate-out');
+             jQuery('.pagenation').removeClass('is-active');
+            jQuery('.page-04').addClass('is-active');
+        })
+
+        jQuery( '.nameInput' ).bind('keypress', function(e){
+            if ( e.keyCode == 13 ) {
+                jQuery('.softSubmit').click();
+                jQuery('.block').removeClass('is-active');
+                jQuery('.block-01').addClass('not-active');
+                jQuery('.block-02').addClass('is-active');
+                // jQuery('.block-03').addClass('animate-out');
+                jQuery('.pagenation').removeClass('is-active');
+                jQuery('.page-02').addClass('is-active');
+                setTimeout(function() {
+                    jQuery( '.emailInput' ).focus();
+                }, 800);
+                
+            }
+        });
+
+        jQuery( '.emailInput' ).bind('keypress', function(e){
+            if ( e.keyCode == 13 ) {
+                jQuery('.hardSubmit').click();
+                jQuery('.block').removeClass('is-active');
+                jQuery('.block-02').addClass('not-active');
+                jQuery('.block-03').addClass('is-active');
+                // jQuery('.block-03').addClass('animate-out');
+                jQuery('.pagenation').removeClass('is-active');
+                jQuery('.page-03').addClass('is-active');
+            }
+        });
+
+        let name = 'default';
+        let email ='default';
+        let team ='default';
+         
+        document.getElementById("name")
+        .addEventListener("keyup", function(event) {
+          event.preventDefault();
+          name = document.getElementById("name").value;
+        });
+
+        document.getElementById("email")
+        .addEventListener("keyup", function(event) {
+          event.preventDefault();
+          email = document.getElementById("email").value;
+        });
+        
+        function submit() {
+            console.log('submit is running');
+            var ref = {{ ref_name|tojson }};
+            console.log('ref is ', ref);
+            
+            jQuery.ajax({
+              url: '/submit',
+              data: JSON.stringify({
+                "name": name,
+                "email": email,
+                "ref": ref,
+              }),
+              dataType: 'json',
+              contentType: "application/json",
+              type: 'POST',
+              success: function(response) {
+                console.log(response);
+                // userId = response['type'];
+                // window.location = "/" + userId;
+              },
+              error: function(error) {
+                console.log(error);
+              }
+            });
+
+            console.log('submit has run, name is ', name);
+
+          }
+
+        function softSubmit() {
+            console.log('softsubmit is running');
+            
+            jQuery.ajax({
+              url: '/softSubmit',
+              data: JSON.stringify({
+                "name": name,
+              }),
+              dataType: 'json',
+              contentType: "application/json",
+              type: 'POST',
+              success: function(response) {
+                console.log(response);
+                console.log(response.data);
+                var node = document.getElementById("displayLink");
+                var textnode = document.createTextNode(response.data);
+                node.appendChild(textnode); 
+
+                // userId = response['type'];
+                // window.location = "/" + userId;
+              },
+              error: function(error) {
+                console.log(error);
+              }
+            });
+
+            console.log('softsubmit has run, name is ', name);
+
+          }
+
+        function nullSubmit(e) {
+            e.preventDefault();
+            return false;
+        }
+
+    </script>
+
+    
+
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/classie.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/modalEffects.js') }}"></script>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/nlform.js') }}"></script>
+    <script>
+        var nlform = new NLForm(document.getElementById('nl-form'));
+    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+
+    <!-- TEAM SLIDER  -->
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/jquery.flexslider.js') }}"></script>
+
+    <!-- SCHEDULE TABS  -->
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/modernizr.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/cbpFWTabs.js') }}"></script>
+
+    <!--SPONSOR SLIDER-->
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/jssor.core.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/jssor.utils.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/jssor.slider.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/sponsor_init.js') }}"></script>
+
+    <!-- SMOOTH SCROLL  -->
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/smooth-scroll.js') }}"></script>
+
+    <!-- NICE SCROLL  -->
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/jquery.nicescroll.js') }}"></script>
+
+    <!-- SUBSCRIPTION FORM  -->
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/notifyMe.js') }}"></script>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/jquery.placeholder.js') }}"></script>
+
+    <!-- ANIMATION  -->
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/wow.min.js') }}"></script>
+    <!--triangle-->
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/TweenLite.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/EasePack.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/rAF.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/canvas.js') }}"></script>
+    <!-- INITIALIZATION  -->
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/init.js') }}"></script>
+</body>
+
+</html>
