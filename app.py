@@ -1,13 +1,11 @@
 from flask import Flask, request, redirect, jsonify, render_template
 from flask_cors import CORS, cross_origin
-from twilio.twiml.messaging_response import MessagingResponse
 from scrape import people, linkCheck
 import random
 import threading
 import datetime
 import re
 import time
-from twilio.rest import Client
 from string import punctuation
 import os
 import gspread
@@ -23,7 +21,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 # Find these values at https://twilio.com/user/account
 # account_sid = 'XXXXXXXXXXX" # PUT YOUR TWILIO ACCOUNT_SID IN twilio_creds.py FILE
 # auth_token = 'XXXXXXXXXXX" # PUT YOUR TWILIO_AUTH TOKEN IN twilio_creds.py FILE
-client = Client(account_sid, auth_token)
+# client = Client(account_sid, auth_token)
 
 scope = ['https://spreadsheets.google.com/feeds']
 creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)

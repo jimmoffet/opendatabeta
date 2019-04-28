@@ -5,8 +5,6 @@ import random
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-from craigslist import CraigslistHousing
-from slackclient import SlackClient
 import sys
 import time
 
