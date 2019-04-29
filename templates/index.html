@@ -83,7 +83,7 @@
             <h1 class="wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="1s">Primary Token Listing Competition - Spring 2019</h1>
             <hr id="title_hr" />
             <p class="wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="1s">May 1 - 20, 2019 (Application submission opens May 1 -15)</p>
-            <a class="learn-more-btn btn-effect wow animated fadeIn" target="_blank" href="https://slingshotcontest.typeform.com/to/HHSoVE">Apply Here</a>
+            <a class="learn-more-btn btn-effect wow animated fadeIn" target="_blank" href="{{ 'https://slingshotcontest.typeform.com/to/HHSoVE/%s'%ref_name|urlencode }}">Apply Here</a>
         </div>
     </section>
     <!--/HOME-->
@@ -118,7 +118,7 @@
                     <div class="blocks">
                       <div class="block block-01 is-active">
                         <form onsubmit="return false">
-                          <input type="text" name="name" class= "nameInput" id="name" placeholder="Your Name">
+                          <input type="text" name="name" class= "nameInput" id="name" onfocus="showNext()" placeholder="Your Name">
                         </form>
                         <div class="button page-02 noSubmit" id="noSubmit">Next →</div>
                       </div>
@@ -126,7 +126,7 @@
                         <form onsubmit="return false">
                           <input type="text" name="email" id="email" class= "emailInput" placeholder="Email or Phone">
                         </form>
-                        <div class="button page-03 hardSubmit" id="hardSubmit" onclick="submit()">Next →</div>
+                        <div class="button page-03 hardSubmit" id="hardSubmit" onclick="submit()" style="display:block">Next →</div>
                       </div>
                       <div class="block block-03" id="displayCode">
                         <div class="loader" id="loader">Loading...</div>
@@ -1028,6 +1028,10 @@
             // jQuery('.block-03').addClass('animate-out');
              jQuery('.pagenation').removeClass('is-active');
             jQuery('.page-03').addClass('is-active');
+            setTimeout(function() {
+                    jQuery( '.block-02' ).css('display', 'none');
+                    jQuery( '.block-01' ).css('display', 'none');
+                }, 800);
         })
 
         jQuery('.page-04').on('click', function() {
@@ -1063,6 +1067,10 @@
                 // jQuery('.block-03').addClass('animate-out');
                 jQuery('.pagenation').removeClass('is-active');
                 jQuery('.page-03').addClass('is-active');
+                setTimeout(function() {
+                    jQuery( '.block-02' ).css('display', 'none');
+                    jQuery( '.block-01' ).css('display', 'none');
+                }, 800);
             }
         });
 
@@ -1074,16 +1082,17 @@
         .addEventListener("keyup", function(event) {
           event.preventDefault();
           name = document.getElementById("name").value;
+        });
+
+        function showNext() {
           var button = document.getElementById("noSubmit");
           button.style.display = "block";
-        });
+        }
 
         document.getElementById("email")
         .addEventListener("keyup", function(event) {
           event.preventDefault();
           email = document.getElementById("email").value;
-          var button = document.getElementById("hardSubmit");
-          button.style.display = "block";
         });
         
         function submit() {
