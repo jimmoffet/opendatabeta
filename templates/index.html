@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <!-- FAVICON -->
-    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" type="image/x-icon">
-    <link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <!-- TITLE -->
     <title>Slingshot Contest - Live!</title>
@@ -58,7 +58,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" data-scroll href="#sec_1"><img src="assets/img/fbrklogo.png" alt="Slingshot" /></a>
+                    <a class="navbar-brand" data-scroll href="#sec_1"><img src="{{ url_for('static', filename='assets/img/fbrklogo.png') }}" alt="Slingshot" /></a>
                 </div>
                 <div class="collapse navbar-collapse" id="example-navbar-collapse">
                     <ul class="nav navbar-nav">
@@ -107,7 +107,7 @@
         <div class="container wow animated fadeInLeft animated" data-wow-duration="1s" data-wow-delay="0.5s">
             <div class="row">
                 <div class="col-lg-8 align-center about">
-                    <h1 class="arrow">Refer a Winning Team, Get $5,000</h1>
+                    <h1 class="arrow" id="refTitle">Refer a Winning Team, Get $5,000</h1>
                     <hr>
                     <p>Get a link below and receive $5,000 when a winning applicant uses your link. Send your link to friends, too! If a friend refers a winner, you get $2,500. If a friend-of-a-friend refers a winner, you get $1,250, and so on down the line.</p>
                 </div>
@@ -192,7 +192,7 @@
                     <p>We have several exciting events scheduled throughout the country. Below is an outline of our competition timeline including the stops we'll be making to spread the word and meet you in person.</p>
                 </div>
                 <div class="col-md-12 rmap align-center">
-                    <img class="img-responsive" src="assets/img/roadmap.png" />
+                    <img class="img-responsive" src="{{ url_for('static', filename='assets/img/roadmap.png') }}" />
                 </div>
             </div>
         </div>
@@ -590,7 +590,7 @@
                                 <div class="col-md-4 col-sm-4 wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
                                     <div class="overlay-effect effects clearfix">
                                         <div class="img">
-                                            <img src="assets/img/team/nadeem.jpeg" alt="Portfolio Item">
+                                            <img src="{{ url_for('static', filename='assets/img/team/nadeem.jpeg') }}" alt="Portfolio Item">
                                             <div class="overlay">
                                                 <button class="md-trigger expand" data-modal="modal-1"><i class="fa fa-search"></i><br>View More</button>
                                             </div>
@@ -603,7 +603,7 @@
                                 <div class="col-md-4 col-sm-4 wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.7s">
                                     <div class="overlay-effect effects clearfix">
                                         <div class="img">
-                                            <img src="assets/img/team/michelle.png" alt="Portfolio Item">
+                                            <img src="{{ url_for('static', filename='assets/img/team/michelle.png') }}" alt="Portfolio Item">
                                             <div class="overlay">
                                                 <button class="md-trigger expand" data-modal="modal-2"><i class="fa fa-search"></i><br>View More</button>
                                             </div>
@@ -616,7 +616,7 @@
                                 <div class="col-md-4 col-sm-4 wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.9s">
                                     <div class="overlay-effect effects clearfix">
                                         <div class="img">
-                                            <img src="assets/img/team/team3.jpg" alt="Portfolio Item">
+                                            <img src="{{ url_for('static', filename='assets/img/team/team3.jpg') }}" alt="Portfolio Item">
                                             <div class="overlay">
                                                 <button class="md-trigger expand" data-modal="modal-3"><i class="fa fa-search"></i><br>View More</button>
                                             </div>
@@ -631,7 +631,7 @@
                                 <div class="col-md-4 col-sm-4 wow animated fadeInUp">
                                     <div class="overlay-effect effects clearfix">
                                         <div class="img">
-                                            <img src="assets/img/team/team1.jpg" alt="Portfolio Item">
+                                            <img src="{{ url_for('static', filename='assets/img/team/team1.jpg') }}" alt="Portfolio Item">
                                             <div class="overlay">
                                                 <button class="md-trigger expand" data-modal="modal-4"><i class="fa fa-search"></i><br>View More</button>
                                             </div>
@@ -643,7 +643,7 @@
                                 <div class="col-md-4 col-sm-4 wow animated fadeInUp">
                                     <div class="overlay-effect effects clearfix">
                                         <div class="img">
-                                            <img src="assets/img/team/team2.jpg" alt="Portfolio Item">
+                                            <img src="{{ url_for('static', filename='assets/img/team/team2.jpg') }}" alt="Portfolio Item">
                                             <div class="overlay">
                                                 <button class="md-trigger expand" data-modal="modal-5"><i class="fa fa-search"></i><br>View More</button>
                                             </div>
@@ -655,7 +655,7 @@
                                 <div class="col-md-4 col-sm-4 wow animated fadeInUp">
                                     <div class="overlay-effect effects clearfix">
                                         <div class="img">
-                                            <img src="assets/img/team/team3.jpg" alt="Portfolio Item">
+                                            <img src="{{ url_for('static', filename='assets/img/team/team3.jpg') }}" alt="Portfolio Item">
                                             <div class="overlay">
                                                 <button class="md-trigger expand" data-modal="modal-6"><i class="fa fa-search"></i><br>View More</button>
                                             </div>
@@ -944,14 +944,14 @@
                 <!-- Jssor Slider Begin -->
                 <div id="slider1_container" style=" ">
                     <div class="inner_carousal" data-u="slides" style="">
-                        <div><img alt="sp1" src="assets/img/sponsor/sp1.png" /></div>
-                        <div><img alt="sp2" src="assets/img/sponsor/sp2.png" /></div>
-                        <div><img alt="sp3" src="assets/img/sponsor/sp3.png" /></div>
-                        <div><img alt="sp4" src="assets/img/sponsor/sp4.png" /></div>
-                        <div><img alt="sp5" src="assets/img/sponsor/sp5.png" /></div>
-                        <div><img alt="sp6" src="assets/img/sponsor/sp6.png" /></div>
-                        <div><img alt="sp7" src="assets/img/sponsor/sp7.png" /></div>
-                        <div><img alt="sp8" src="assets/img/sponsor/sp8.png" /></div>
+                        <div><img alt="sp1" src="{{ url_for('static', filename='assets/img/sponsor/sp1.png') }}" /></div>
+                        <div><img alt="sp2" src="{{ url_for('static', filename='assets/img/sponsor/sp2.png') }}" /></div>
+                        <div><img alt="sp3" src="{{ url_for('static', filename='assets/img/sponsor/sp3.png') }}" /></div>
+                        <div><img alt="sp4" src="{{ url_for('static', filename='assets/img/sponsor/sp4.png') }}" /></div>
+                        <div><img alt="sp5" src="{{ url_for('static', filename='assets/img/sponsor/sp5.png') }}" /></div>
+                        <div><img alt="sp6" src="{{ url_for('static', filename='assets/img/sponsor/sp6.png') }}" /></div>
+                        <div><img alt="sp7" src="{{ url_for('static', filename='assets/img/sponsor/sp7.png') }}" /></div>
+                        <div><img alt="sp8" src="{{ url_for('static', filename='assets/img/sponsor/sp8.png') }}" /></div>
                     </div>
                 </div>
                 <!-- Jssor Slider End -->
@@ -995,6 +995,16 @@
     
 
     <script>
+        var refAsString = "{{'%s'%ref_name|string}}";
+        var length = refAsString.length;
+        console.log('length of var is ',length)
+        if ( length > 1 ) {
+            console.log('refasstring is ',refAsString)
+            var node = document.getElementById("refTitle");
+            var string = "Refer a Winning Team, Get $5,000 (plus $2500 for "+refAsString+")";
+            console.log('string is ',string)
+            node.innerText=string;
+        }
 
         jQuery('.pagenation').on('click', function() {
             jQuery('.pagenation').removeClass('is-active');
