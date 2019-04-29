@@ -8,6 +8,7 @@ import re
 import time
 from string import punctuation
 import os
+import copy
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
@@ -98,12 +99,13 @@ def hello():
 
 @app.route('/<string:ref_name>/')
 def render_static_referral(ref_name):
+	ref_code = copy.copy(ref_name)
 	for row in range(rlen):
 		if row == 0:
 			continue
 	if sheetList[row][2].replace('https://www.slingshotcontest.io/','') == ref_name:
 		ref_name = sheetList[row][0]
-	return render_template('index.html', ref_name=ref_name)
+	return render_template('index.html', ref_name=ref_name, ref_code=ref_code)
 
 @app.route('/slingshot/<string:page_name>/')
 def render_static(page_name):
