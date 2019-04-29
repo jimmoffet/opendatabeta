@@ -24,7 +24,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 # auth_token = 'XXXXXXXXXXX" # PUT YOUR TWILIO_AUTH TOKEN IN twilio_creds.py FILE
 # client = Client(account_sid, auth_token)
 
-scope = ['https://spreadsheets.google.com/feeds']
+scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
 gClient = gspread.authorize(creds)
 
