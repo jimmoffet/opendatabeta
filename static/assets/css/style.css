@@ -109,12 +109,11 @@ p {
     line-height: 1.6em;
 }
 html{
-	overflow:hidden;
+	overflow-x:hidden;
 }
 .bottom-spacing{
 	margin-bottom:2.5%;
 }
-
 .form-control::-webkit-input-placeholder { /* WebKit browsers */
     color: #fff;
    
@@ -952,6 +951,10 @@ div.avatar {
 /** Schedule **/
 /********************************/
 
+.rmap {
+    margin-top:5%;
+}
+
 .name {
     text-transform: none;
     font-weight: 500;
@@ -984,7 +987,7 @@ div.avatar {
 }
 
 .accordion {
-	overflow: hidden;
+	overflow-x: hidden;
 	margin: 34px auto 0px auto;
 }
 

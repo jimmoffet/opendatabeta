@@ -25,7 +25,7 @@ jQuery(window).load(function() {
         // create particles
         triangles = [];
         for(var x = 0; x < 480; x++) {
-            addTriangle(x*30);
+            addTriangle(x*100);
         }
     }
 

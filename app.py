@@ -11,8 +11,8 @@ import os
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-account_sid = os.environ.get('TWILIO_SID', None)
-auth_token = os.environ.get('TWILIO_TOKEN', None)
+# account_sid = os.environ.get('TWILIO_SID', None)
+# auth_token = os.environ.get('TWILIO_TOKEN', None)
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -36,7 +36,7 @@ def hello():
 		ref_name = ''
 		return render_template('index.html', ref_name=ref_name)
 	except:
-		out = ' FIX MEEEEEEEEEEEEEEEEEEEEEE!!!!.'
+		out = '404: Please contact your system administrator.'
 		return out
 
 @app.route('/<string:ref_name>/')
@@ -47,44 +47,23 @@ def render_static_referral(ref_name):
 def render_static(page_name):
     return render_template('%s.html' % page_name)
 
-@app.route("/ref/<string:refcode>", methods=["POST", "GET"])
-def renderLogin(refcode):
-	refname=''
-	random.seed( str(time.time()).replace('.','') )
-	if refcode:
-		refname = refcode
-	else:
-		refcode = random.randint(100000000, 999999999)
-	print(refcode)
-	return render_template('index.html', refcode=refcode, refname=refname)
-
 @app.route("/submit", methods=["POST"])
 def submit():
 	if request.method == "POST":
-		
 		resp = request.get_json()
 		name = resp['name']
 		email = resp['email']
 		ref = resp['ref']
-		print('name is ', name)
-		print('ref is ', ref)
-
 		outname, outemail, outlink, outref = people(gClient, name, email, ref)
-
 	return jsonify({"type":"success", "data":outlink})
 
 @app.route("/softSubmit", methods=["POST"])
 def softSubmit():
 	if request.method == "POST":
-		
 		resp = request.get_json()
 		name = resp['name']
-		print('name is ', name)
-
 		outname, outemail, outlink, outteam = linkCheck(gClient, name)
-
 	return jsonify({"type":"success", "data":outlink})
-
 
 if __name__ == "__main__":
 	app.run(debug=False)
