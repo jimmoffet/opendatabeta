@@ -169,7 +169,8 @@ body {
 
 @media screen and (max-width: 992px) {
 
-    .rmap {display:none;}
+.rmap {overflow-x: scroll;}
+.rmap img {max-width: none;}
     
 .navbar-fixed-top .navbar-collapse,
 .navbar-static-top .navbar-collapse,
