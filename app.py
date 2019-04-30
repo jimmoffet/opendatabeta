@@ -34,7 +34,7 @@ rlen = len(sheetList)
 
 def tryName(name, rlen, sheetList):
     new = True
-    link = 'https://www.slingshotcontest.io/'+name
+    link = 'https://www.slingshotchallenge.com/'+name
         
     for row in range(rlen):
         if row == 0:
@@ -48,7 +48,7 @@ def people(passClient, fullname, email, ref = ''):
     sheetList = sheet.get_all_values()
     rlen = len(sheetList)
     names = fullname.split()
-    link = 'https://www.slingshotcontest.io/'
+    link = 'https://www.slingshotchallenge.com/'
     nameStr = ''
     cnt = 0
     num = 1
@@ -103,7 +103,7 @@ def render_static_referral(ref_name):
 	for row in range(rlen):
 		if row == 0:
 			continue
-	if sheetList[row][2].replace('https://www.slingshotcontest.io/','') == ref_name:
+	if sheetList[row][2].replace('https://www.slingshotchallenge.com/','') == ref_name:
 		ref_name = sheetList[row][0]
 	return render_template('index.html', ref_name=ref_name, ref_code=ref_code)
 
