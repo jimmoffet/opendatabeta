@@ -27,7 +27,7 @@ def pLayer():
 
 def tryName(name, rlen, sheetList):
     new = True
-    link = 'https://www.slingshotcontest.io/'+name
+    link = 'https://www.slingshotchallenge.com/'+name
         
     for row in range(rlen):
         if row == 0:
@@ -47,7 +47,7 @@ def people(passClient, fullname, email, ref = ''):
 
     names = fullname.split()
 
-    link = 'https://www.slingshotcontest.io/'
+    link = 'https://www.slingshotchallenge.com/'
 
     nameStr = ''
     cnt = 0
@@ -94,7 +94,7 @@ def linkCheck(passClient, fullname, email = '', team = ''):
 
     names = fullname.split()
 
-    link = 'https://www.slingshotcontest.io/'
+    link = 'https://www.slingshotchallenge.com/'
 
     nameStr = ''
     cnt = 0
