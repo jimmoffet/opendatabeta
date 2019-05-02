@@ -27,8 +27,10 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
 gClient = gspread.authorize(creds)
-
+gClient.login()  # refreshes the token
 sheet = gClient.open("SLINGSHOTREFERRALS").sheet1
+
+# sheet = gClient.open("SLINGSHOTREFERRALS").sheet1
 sheetList = sheet.get_all_values()
 rlen = len(sheetList)
 
@@ -44,6 +46,7 @@ def tryName(name, rlen, sheetList):
     return new, link
 
 def people(passClient, fullname, email, ref = ''):
+
     sheet = passClient.open("SLINGSHOTREFERRALS").sheet1
     sheetList = sheet.get_all_values()
     rlen = len(sheetList)
