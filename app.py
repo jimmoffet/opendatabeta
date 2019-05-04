@@ -118,7 +118,7 @@ def submit():
                 return jsonify({"type":"success", "data":outlink})
             except:
                 gClient = gspread.authorize(creds)
-                gClient.login()  # refreshes the token
+                gClient.login() 
                 sheet = gClient.open("SLINGSHOTREFERRALS").sheet1
                 sheetList = sheet.get_all_values()
                 rlen = len(sheetList)
