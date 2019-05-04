@@ -21,8 +21,6 @@ creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', s
 gClient = gspread.authorize(creds)
 gClient.login()  # refreshes the token
 sheet = gClient.open("SLINGSHOTREFERRALS").sheet1
-
-# sheet = gClient.open("SLINGSHOTREFERRALS").sheet1
 sheetList = sheet.get_all_values()
 rlen = len(sheetList)
 
@@ -39,9 +37,9 @@ def tryName(name, rlen, sheetList):
 
 def people(passClient, fullname, email, ref = ''):
 
-    sheet = passClient.open("SLINGSHOTREFERRALS").sheet1
-    sheetList = sheet.get_all_values()
-    rlen = len(sheetList)
+    # sheet = passClient.open("SLINGSHOTREFERRALS").sheet1
+    # sheetList = sheet.get_all_values()
+    # rlen = len(sheetList)
     names = fullname.split()
     link = 'https://www.slingshotchallenge.com/'
     nameStr = ''
@@ -108,13 +106,23 @@ def render_static(page_name):
 
 @app.route("/submit", methods=["POST"])
 def submit():
-	if request.method == "POST":
-		resp = request.get_json()
-		name = resp['name']
-		email = resp['email']
-		ref = resp['ref']
-		outname, outemail, outlink, outref = people(gClient, name, email, ref)
-	return jsonify({"type":"success", "data":outlink})
+    attempts = [1,1,1,1]
+    if request.method == "POST":
+        resp = request.get_json()
+        name = resp['name']
+        email = resp['email']
+        ref = resp['ref']
+        for attempt in attempts:
+            try:
+                outname, outemail, outlink, outref = people(gClient, name, email, ref)
+                return jsonify({"type":"success", "data":outlink})
+            except:
+                gClient = gspread.authorize(creds)
+                gClient.login()  # refreshes the token
+                sheet = gClient.open("SLINGSHOTREFERRALS").sheet1
+                sheetList = sheet.get_all_values()
+                rlen = len(sheetList)
+    return jsonify({"type":"success", "data":'Service unavailable! Please contact ace@slingshotchallenge.com'})
 
 @app.route("/softSubmit", methods=["POST"])
 def softSubmit():
