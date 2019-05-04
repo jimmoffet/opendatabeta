@@ -35,11 +35,14 @@ def tryName(name, rlen, sheetList):
             new = False
     return new, link
 
-def people(passClient, fullname, email, ref = ''):
+def people(fullname, email, ref = ''):
 
-    # sheet = passClient.open("SLINGSHOTREFERRALS").sheet1
-    # sheetList = sheet.get_all_values()
-    # rlen = len(sheetList)
+    gc = gspread.authorize(creds)
+    gc.login() 
+    sheet = gc.open("SLINGSHOTREFERRALS").sheet1
+    sheetList = sheet.get_all_values()
+    
+    rlen = len(sheetList)
     names = fullname.split()
     link = 'https://www.slingshotchallenge.com/'
     nameStr = ''
@@ -114,7 +117,7 @@ def submit():
         ref = resp['ref']
         for attempt in attempts:
             try:
-                outname, outemail, outlink, outref = people(gClient, name, email, ref)
+                outname, outemail, outlink, outref = people(name, email, ref)
                 return jsonify({"type":"success", "data":outlink})
             except:
                 gClient = gspread.authorize(creds)
