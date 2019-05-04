@@ -12,17 +12,9 @@ import copy
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-# account_sid = os.environ.get('TWILIO_SID', None)
-# auth_token = os.environ.get('TWILIO_TOKEN', None)
-
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
-
-# Find these values at https://twilio.com/user/account
-# account_sid = 'XXXXXXXXXXX" # PUT YOUR TWILIO ACCOUNT_SID IN twilio_creds.py FILE
-# auth_token = 'XXXXXXXXXXX" # PUT YOUR TWILIO_AUTH TOKEN IN twilio_creds.py FILE
-# client = Client(account_sid, auth_token)
 
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
