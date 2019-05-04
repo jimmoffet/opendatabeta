@@ -1086,9 +1086,7 @@ div.avatar {
 }
 .fb {
    /* background: url("../img/fbicn.png") no-repeat scroll left 30px top 18px rgba(0, 0, 0, 0); */
-    border-left: 1px solid #c8c8c8;
     display: inline-block;
-    float: left;
     font-size: 1em;
     font-weight: bold;
     letter-spacing: 6px;
