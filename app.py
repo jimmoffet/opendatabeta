@@ -12,25 +12,15 @@ import copy
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-# account_sid = os.environ.get('TWILIO_SID', None)
-# auth_token = os.environ.get('TWILIO_TOKEN', None)
-
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
-
-# Find these values at https://twilio.com/user/account
-# account_sid = 'XXXXXXXXXXX" # PUT YOUR TWILIO ACCOUNT_SID IN twilio_creds.py FILE
-# auth_token = 'XXXXXXXXXXX" # PUT YOUR TWILIO_AUTH TOKEN IN twilio_creds.py FILE
-# client = Client(account_sid, auth_token)
 
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
 gClient = gspread.authorize(creds)
 gClient.login()  # refreshes the token
 sheet = gClient.open("SLINGSHOTREFERRALS").sheet1
-
-# sheet = gClient.open("SLINGSHOTREFERRALS").sheet1
 sheetList = sheet.get_all_values()
 rlen = len(sheetList)
 
@@ -45,10 +35,13 @@ def tryName(name, rlen, sheetList):
             new = False
     return new, link
 
-def people(passClient, fullname, email, ref = ''):
+def people(fullname, email, ref = ''):
 
-    sheet = passClient.open("SLINGSHOTREFERRALS").sheet1
+    gc = gspread.authorize(creds)
+    gc.login() 
+    sheet = gc.open("SLINGSHOTREFERRALS").sheet1
     sheetList = sheet.get_all_values()
+    
     rlen = len(sheetList)
     names = fullname.split()
     link = 'https://www.slingshotchallenge.com/'
@@ -116,13 +109,23 @@ def render_static(page_name):
 
 @app.route("/submit", methods=["POST"])
 def submit():
-	if request.method == "POST":
-		resp = request.get_json()
-		name = resp['name']
-		email = resp['email']
-		ref = resp['ref']
-		outname, outemail, outlink, outref = people(gClient, name, email, ref)
-	return jsonify({"type":"success", "data":outlink})
+    attempts = [1,1,1,1]
+    if request.method == "POST":
+        resp = request.get_json()
+        name = resp['name']
+        email = resp['email']
+        ref = resp['ref']
+        for attempt in attempts:
+            try:
+                outname, outemail, outlink, outref = people(name, email, ref)
+                return jsonify({"type":"success", "data":outlink})
+            except:
+                gClient = gspread.authorize(creds)
+                gClient.login() 
+                sheet = gClient.open("SLINGSHOTREFERRALS").sheet1
+                sheetList = sheet.get_all_values()
+                rlen = len(sheetList)
+    return jsonify({"type":"success", "data":'Service unavailable! Please contact ace@slingshotchallenge.com'})
 
 @app.route("/softSubmit", methods=["POST"])
 def softSubmit():
